@@ -4,14 +4,19 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.graphics.Color;
+import android.view.View;
 
 
 public class Grafico extends Activity {
+
+    private Graf Graf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grafico);
+        Graf = (Graf)findViewById(R.id.Graf);
     }
 
     @Override
@@ -34,5 +39,12 @@ public class Grafico extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void btnPressed(View view){
+        //update the View
+        Graf.setCircleColor(Color.GREEN);
+        Graf.setLabelColor(Color.MAGENTA);
+        Graf.setLabelText("Help");
     }
 }
