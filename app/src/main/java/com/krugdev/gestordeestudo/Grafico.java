@@ -11,12 +11,14 @@ import android.view.View;
 public class Grafico extends Activity {
 
     private Graf Graf;
+    private int angulo[]={10,25,45,60,71,80,98,125,160,230,250,360,360,360,360,360,360,360,360,360};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grafico);
         Graf = (Graf)findViewById(R.id.Graf);
+        Graf.angulo(angulo);
     }
 
     @Override

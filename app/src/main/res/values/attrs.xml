@@ -5,6 +5,26 @@
         <attr name="circleColor" format="color"></attr>
         <attr name="circleLabel" format="string"></attr>
         <attr name="labelColor" format="color"></attr>
+        <attr name="sliceColor_0" format="color"></attr>
+        <attr name="sliceColor_1" format="color"></attr>
+        <attr name="sliceColor_2" format="color"></attr>
+        <attr name="sliceColor_3" format="color"></attr>
+        <attr name="sliceColor_4" format="color"></attr>
+        <attr name="sliceColor_5" format="color"></attr>
+        <attr name="sliceColor_6" format="color"></attr>
+        <attr name="sliceColor_7" format="color"></attr>
+        <attr name="sliceColor_8" format="color"></attr>
+        <attr name="sliceColor_9" format="color"></attr>
+        <attr name="sliceColor_10" format="color"></attr>
+        <attr name="sliceColor_11" format="color"></attr>
+        <attr name="sliceColor_12" format="color"></attr>
+        <attr name="sliceColor_13" format="color"></attr>
+        <attr name="sliceColor_14" format="color"></attr>
+        <attr name="sliceColor_15" format="color"></attr>
+        <attr name="sliceColor_16" format="color"></attr>
+        <attr name="sliceColor_17" format="color"></attr>
+        <attr name="sliceColor_18" format="color"></attr>
+        <attr name="sliceColor_19" format="color"></attr>
     </declare-styleable>
 
 

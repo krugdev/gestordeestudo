@@ -5,6 +5,8 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.ArcShape;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -18,13 +20,21 @@ public class Graf extends View {
     //label text
     private String circleText;
     //paint for drawing custom view
-    private Paint circlePaint;
+    private Paint ArcPaint;
+
+    private ArcShape Arc[];
+
+    private int qtd;
+
+    private int cor[];
+
+    private ShapeDrawable Shape;
 
     public Graf(Context context, AttributeSet attrs){
         super(context, attrs);
 
         //paint object for drawing in onDraw
-        circlePaint = new Paint();
+        ArcPaint = new Paint();
 
         //get the attributes specified in attrs.xml using the name we included
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.Graf, 0, 0);
@@ -34,8 +44,41 @@ public class Graf extends View {
             circleText = a.getString(R.styleable.Graf_circleLabel);
             circleCol = a.getInteger(R.styleable.Graf_circleColor, 0);//0 is default
             labelCol = a.getInteger(R.styleable.Graf_labelColor, 0);
+            cor[0]=a.getInteger(R.styleable.Graf_sliceColor_0, 0);
+            cor[1]=a.getInteger(R.styleable.Graf_sliceColor_1, 0);
+            cor[2]=a.getInteger(R.styleable.Graf_sliceColor_2, 0);
+            cor[3]=a.getInteger(R.styleable.Graf_sliceColor_3, 0);
+            cor[4]=a.getInteger(R.styleable.Graf_sliceColor_4, 0);
+            cor[5]=a.getInteger(R.styleable.Graf_sliceColor_5, 0);
+            cor[6]=a.getInteger(R.styleable.Graf_sliceColor_6, 0);
+            cor[7]=a.getInteger(R.styleable.Graf_sliceColor_7, 0);
+            cor[8]=a.getInteger(R.styleable.Graf_sliceColor_8, 0);
+            cor[9]=a.getInteger(R.styleable.Graf_sliceColor_9, 0);
+            cor[10]=a.getInteger(R.styleable.Graf_sliceColor_10, 0);
+            cor[11]=a.getInteger(R.styleable.Graf_sliceColor_11, 0);
+            cor[12]=a.getInteger(R.styleable.Graf_sliceColor_12, 0);
+            cor[13]=a.getInteger(R.styleable.Graf_sliceColor_13, 0);
+            cor[14]=a.getInteger(R.styleable.Graf_sliceColor_14, 0);
+            cor[15]=a.getInteger(R.styleable.Graf_sliceColor_15, 0);
+            cor[16]=a.getInteger(R.styleable.Graf_sliceColor_16, 0);
+            cor[17]=a.getInteger(R.styleable.Graf_sliceColor_17, 0);
+            cor[18]=a.getInteger(R.styleable.Graf_sliceColor_18, 0);
+            cor[19]=a.getInteger(R.styleable.Graf_sliceColor_19, 0);
+
+
         } finally {
             a.recycle();
+        }
+
+
+
+
+    }
+
+    public void angulo(int a[]) {
+
+        for(int i=0 ; i < 20 ; i++){
+            Arc[i] = new ArcShape(a[i],a[i+1]);
         }
 
     }
@@ -56,23 +99,37 @@ public class Graf extends View {
         else
             radius=viewWidthHalf-10;
 
-        circlePaint.setStyle(Style.FILL);
-        circlePaint.setAntiAlias(true);
+        ArcPaint.setStyle(Style.FILL);
+        ArcPaint.setAntiAlias(true);
 
         //set the paint color using the circle color specified
-        circlePaint.setColor(circleCol);
+        ArcPaint.setColor(circleCol);
 
-        canvas.drawCircle(viewWidthHalf, viewHeightHalf, radius, circlePaint);
+        Shape = new ShapeDrawable();
+        Shape.setBounds(10, 10, radius * 2, radius * 2);
+
+
+
+        for(int i=0 ; i < 20 ; i++){
+            Shape.setShape(Arc[i]);
+            ArcPaint.setColor(cor[i]);
+            Shape.getPaint().set(ArcPaint);
+            Shape.draw(canvas);
+        }
+
+
+
+        //canvas.drawCircle(viewWidthHalf, viewHeightHalf, radius, circlePaint);
 
         //set the text color using the color specified
-        circlePaint.setColor(labelCol);
+        //ArcPaint.setColor(labelCol);
 
         //set text properties
-        circlePaint.setTextAlign(Paint.Align.CENTER);
-        circlePaint.setTextSize(50);
+        //ArcPaint.setTextAlign(Paint.Align.CENTER);
+        //ArcPaint.setTextSize(50);
 
         //draw the text using the string attribute and chosen properties
-        canvas.drawText(circleText, viewWidthHalf, viewHeightHalf, circlePaint);
+        //canvas.drawText(circleText, viewWidthHalf, viewHeightHalf, circlePaint);
 
 
     }
