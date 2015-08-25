@@ -85,7 +85,7 @@ public class Grafico extends Activity {
         cor.add(Color.argb(255,0,0,255));
 
         Graf.set(cor, angulo);
-        Graf.invalidate();
+        //Graf.invalidate();
         //Graf.requestLayout();
     }
 }

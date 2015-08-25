@@ -42,33 +42,14 @@ public class Graf extends View {
             circleCol = a.getInteger(R.styleable.Graf_circleColor, 0);//0 is default
             labelCol = a.getInteger(R.styleable.Graf_labelColor, 0);
 
-
-
         } finally {
             a.recycle();
         }
 
         ArcPaint = new Paint();
-        ArcPaint.setStyle(Style.STROKE);
-        ArcPaint.setAntiAlias(true);
-        ArcPaint.setStrokeWidth(50);
         angulo = new ArrayList<Float>();
-        angulo.clear();
         cor = new ArrayList<Integer>();
-        cor.clear();
 
-
-        /*for(int i=0 ; i < qtd ; i++){
-            Arc[i] = new ArcShape(angulo[i],angulo[i+1]);
-            Arc[i].s
-            Shape[i] = new ShapeDrawable(Arc[i]);
-            ArcPaint[i] = new Paint();
-            ArcPaint[i].setStyle(Style.FILL);
-            ArcPaint[i].setAntiAlias(true);
-            ArcPaint[i].setColor(cor[i]);
-            ArcPaint[i].setStrokeWidth(10);
-            Shape[i].getPaint().set(ArcPaint[i]);
-        }*/
 
 
     }
@@ -79,11 +60,16 @@ public class Graf extends View {
         //draw the View
 
         //get half of the width and height as we are working with a circle
-        int viewWidthHalf = this.getMeasuredWidth()/2;
-        int viewHeightHalf = this.getMeasuredHeight()/2;
+        //int viewWidthHalf = this.getMeasuredWidth()/2;
+        //int viewHeightHalf = this.getMeasuredHeight()/2;
 
         //get the radius as half of the width or height, whichever is smaller
         //subtract ten so that it has some space around it
+
+        ArcPaint.setStyle(Style.STROKE);
+        ArcPaint.setAntiAlias(true);
+        ArcPaint.setStrokeWidth(200);
+
         int size = 0;
         int padding = 0;
         if(this.getMeasuredWidth()>this.getMeasuredHeight()) {
@@ -101,7 +87,6 @@ public class Graf extends View {
             ArcPaint.setColor(cor.get(i));
             canvas.drawArc(padding, padding, size, size, anguloInicial, angulo.get(i), false, ArcPaint);
             anguloInicial = anguloInicial + angulo.get(i);
-
         }
 
 
@@ -112,8 +97,8 @@ public class Graf extends View {
 
         cor.clear();
         angulo.clear();
-        cor = c;
-        angulo = a;
+        cor.addAll(c);
+        angulo.addAll(a);
         invalidate();
         requestLayout();
     }
