@@ -28,8 +28,6 @@ public class Graf extends View {
     //paint for drawing custom view
     private Paint ArcPaint;
 
-    private int qtd;
-
     private ArrayList angulo;
 
     private ArrayList cor;
@@ -58,7 +56,6 @@ public class Graf extends View {
         ArcPaint.setStyle(Style.STROKE);
         ArcPaint.setAntiAlias(true);
         ArcPaint.setStrokeWidth(10);
-        qtd = 0;
         angulo = new ArrayList();
         angulo.clear();
         cor = new ArrayList();
@@ -101,7 +98,7 @@ public class Graf extends View {
 
         for(int i=0 ; i < angulo.size()  ; i++){
             ArcPaint.setColor((int) cor.get(i));
-            canvas.drawArc(10, 10, radius * 2, radius * 2, anguloInicial, (float) angulo.get(i), false,ArcPaint);
+            canvas.drawArc(10, 10, radius * 2, radius * 2, anguloInicial, (float) angulo.get(i), false, ArcPaint);
         }
 
 
@@ -109,6 +106,8 @@ public class Graf extends View {
 
 
     public void set(ArrayList c,ArrayList a){
+        cor.clear();
+        angulo.clear();
         cor = c;
         angulo = a;
     }

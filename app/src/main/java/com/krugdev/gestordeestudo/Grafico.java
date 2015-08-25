@@ -28,27 +28,11 @@ public class Grafico extends Activity {
 
         angulo = new ArrayList();
         angulo.clear();
-        angulo.add(10);
-        angulo.add(25);
-        angulo.add(40);
-        angulo.add(35);
-        angulo.add(12);
-        angulo.add(45);
-        angulo.add(25);
 
         conversor = new Color();
 
         cor = new ArrayList();
         cor.clear();
-        cor.add(conversor.argb(0,255,0,0));
-        cor.add(conversor.argb(0,255,255,0));
-        cor.add(conversor.argb(0,255,0,255));
-        cor.add(conversor.argb(0,0,255,0));
-        cor.add(conversor.argb(0,0,255,255));
-        cor.add(conversor.argb(0,255,255,255));
-        cor.add(conversor.argb(0,0,0,255));
-
-        Graf.set(cor,angulo);
 
     }
 
@@ -79,7 +63,24 @@ public class Grafico extends Activity {
         Graf.setCircleColor(Color.GREEN);
         Graf.setLabelColor(Color.MAGENTA);
         Graf.setLabelText("Help");
-        Graf.set();
+
+        angulo.add(10);
+        angulo.add(25);
+        angulo.add(40);
+        angulo.add(35);
+        angulo.add(12);
+        angulo.add(45);
+        angulo.add(25);
+
+        cor.add(conversor.argb(0,255,0,0));
+        cor.add(conversor.argb(0,255,255,0));
+        cor.add(conversor.argb(0,255,0,255));
+        cor.add(conversor.argb(0,0,255,0));
+        cor.add(conversor.argb(0,0,255,255));
+        cor.add(conversor.argb(0,255,255,255));
+        cor.add(conversor.argb(0,0,0,255));
+
+        Graf.set(cor,angulo);
         Graf.invalidate();
     }
 }
