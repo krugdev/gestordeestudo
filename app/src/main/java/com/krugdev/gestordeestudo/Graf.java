@@ -30,11 +30,15 @@ public class Graf extends View {
 
     private ShapeDrawable Shape;
 
+
+
     public Graf(Context context, AttributeSet attrs){
         super(context, attrs);
 
         //paint object for drawing in onDraw
         ArcPaint = new Paint();
+
+        Shape = new ShapeDrawable();
 
         //get the attributes specified in attrs.xml using the name we included
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.Graf, 0, 0);
@@ -105,7 +109,7 @@ public class Graf extends View {
         //set the paint color using the circle color specified
         ArcPaint.setColor(circleCol);
 
-        Shape = new ShapeDrawable();
+
         Shape.setBounds(10, 10, radius * 2, radius * 2);
 
 
