@@ -13,9 +13,9 @@ import java.util.ArrayList;
 public class Grafico extends Activity {
 
     private Graf Graf;
-    private ArrayList angulo;
-    private ArrayList cor;
-    private Color conversor;
+    private ArrayList<Float> angulo;
+    private ArrayList<Integer> cor;
+    //private Color conversor;
             //= {10,25,45,60,71,80,98,125,160,230,250,360,360,360,360,360,360,360,360,360};
 
     //angulo[20] = {10,25,45,60,71,80,98,125,160,230,250,360,360,360,360,360,360,360,360,360};
@@ -26,12 +26,12 @@ public class Grafico extends Activity {
         setContentView(R.layout.activity_grafico);
         Graf = (Graf)findViewById(R.id.Graf);
 
-        angulo = new ArrayList();
+        angulo = new ArrayList<Float>();
         angulo.clear();
 
-        conversor = new Color();
+        //conversor = new Color();
 
-        cor = new ArrayList();
+        cor = new ArrayList<Integer>();
         cor.clear();
 
     }
@@ -60,27 +60,32 @@ public class Grafico extends Activity {
 
     public void btnPressed(View view) {
         //update the View
-        Graf.setCircleColor(Color.GREEN);
-        Graf.setLabelColor(Color.MAGENTA);
-        Graf.setLabelText("Help");
+        //Graf.setCircleColor(Color.GREEN);
+        //Graf.setLabelColor(Color.MAGENTA);
+        //Graf.setLabelText("Help");
 
-        angulo.add(10);
-        angulo.add(25);
-        angulo.add(40);
-        angulo.add(35);
-        angulo.add(12);
-        angulo.add(45);
-        angulo.add(25);
+        angulo.clear();
 
-        cor.add(conversor.argb(0,255,0,0));
-        cor.add(conversor.argb(0,255,255,0));
-        cor.add(conversor.argb(0,255,0,255));
-        cor.add(conversor.argb(0,0,255,0));
-        cor.add(conversor.argb(0,0,255,255));
-        cor.add(conversor.argb(0,255,255,255));
-        cor.add(conversor.argb(0,0,0,255));
+        angulo.add((float)10);
+        angulo.add((float)25);
+        angulo.add((float)40);
+        angulo.add((float)35);
+        angulo.add((float)12);
+        angulo.add((float)45);
+        angulo.add((float)25);
 
-        Graf.set(cor,angulo);
+        cor.clear();
+
+        cor.add(Color.argb(255,255,0,0));
+        cor.add(Color.argb(255,255,255,0));
+        cor.add(Color.argb(255,255,0,255));
+        cor.add(Color.argb(255,0,255,0));
+        cor.add(Color.argb(255,0,255,255));
+        cor.add(Color.argb(255,255,255,255));
+        cor.add(Color.argb(255,0,0,255));
+
+        Graf.set(cor, angulo);
         Graf.invalidate();
+        //Graf.requestLayout();
     }
 }

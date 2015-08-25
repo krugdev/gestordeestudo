@@ -5,18 +5,14 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
-import android.graphics.RectF;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.ArcShape;
 import android.util.AttributeSet;
 import android.view.View;
-import android.graphics.Color;
 
 import java.util.ArrayList;
+import java.lang.Math;
 
-/**
- * Created by Krug on 24/08/2015.
- */
+
+
 public class Graf extends View {
 
     //circle and text colors
@@ -28,9 +24,9 @@ public class Graf extends View {
     //paint for drawing custom view
     private Paint ArcPaint;
 
-    private ArrayList angulo;
+    private ArrayList<Float> angulo;
 
-    private ArrayList cor;
+    private ArrayList<Integer> cor;
 
     public Graf(Context context, AttributeSet attrs){
         super(context, attrs);
@@ -55,10 +51,10 @@ public class Graf extends View {
         ArcPaint = new Paint();
         ArcPaint.setStyle(Style.STROKE);
         ArcPaint.setAntiAlias(true);
-        ArcPaint.setStrokeWidth(10);
-        angulo = new ArrayList();
+        ArcPaint.setStrokeWidth(50);
+        angulo = new ArrayList<Float>();
         angulo.clear();
-        cor = new ArrayList();
+        cor = new ArrayList<Integer>();
         cor.clear();
 
 
@@ -88,28 +84,38 @@ public class Graf extends View {
 
         //get the radius as half of the width or height, whichever is smaller
         //subtract ten so that it has some space around it
-        int radius = 0;
-        if(viewWidthHalf>viewHeightHalf)
-            radius=viewHeightHalf-10;
-        else
-            radius=viewWidthHalf-10;
+        int size = 0;
+        int padding = 0;
+        if(this.getMeasuredWidth()>this.getMeasuredHeight()) {
+            size = (int) Math.round(this.getMeasuredHeight() * 0.9);
+            padding = this.getMeasuredHeight() - size;
+        }
+        else {
+            size = (int) Math.round(this.getMeasuredWidth() * 0.9);
+            padding = this.getMeasuredWidth() - size;
+        }
 
-        int anguloInicial = 0;
+        float anguloInicial = -90;
 
         for(int i=0 ; i < angulo.size()  ; i++){
-            ArcPaint.setColor((int) cor.get(i));
-            canvas.drawArc(10, 10, radius * 2, radius * 2, anguloInicial, (float) angulo.get(i), false, ArcPaint);
+            ArcPaint.setColor(cor.get(i));
+            canvas.drawArc(padding, padding, size, size, anguloInicial, angulo.get(i), false, ArcPaint);
+            anguloInicial = anguloInicial + angulo.get(i);
+
         }
 
 
     }
 
 
-    public void set(ArrayList c,ArrayList a){
+    public void set(ArrayList<Integer> c,ArrayList<Float> a){
+
         cor.clear();
         angulo.clear();
         cor = c;
         angulo = a;
+        invalidate();
+        requestLayout();
     }
 
     public int getCircleColor(){
