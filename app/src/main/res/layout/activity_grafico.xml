@@ -9,22 +9,35 @@
 
 
     <RelativeLayout
-        android:id="@+id/relativeLayoutGrafico"
+        android:id="@+id/relativeLayoutTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/relativeLayoutButtons">
+        android:layout_centerHorizontal="true">
 
         <TextView android:text="@string/grafico"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="false"
             android:gravity="center"
             android:textSize="30dp"
             android:textStyle="bold"
-            android:layout_margin="10dp" />
+            android:layout_margin="10dp"
+            android:layout_centerInParent="true" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutGrafico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/relativeLayoutButtons"
+        android:layout_below="@+id/relativeLayoutTitulo">
+
+
 
         <com.krugdev.gestordeestudo.Graf
             android:id="@+id/Graf"
@@ -41,12 +54,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="40sp"
-            android:textColor="#ffffff"
             android:text="00:00:00"
             android:layout_alignParentEnd="false"
             android:layout_alignParentStart="false"
             android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true" />
+            android:layout_alignParentBottom="true"
+            android:autoText="false" />
 
 
         <Button
