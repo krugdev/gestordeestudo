@@ -3,8 +3,8 @@
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="30dp"
-    android:paddingRight="30dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
     tools:context=".Grafico">
 
 
@@ -12,8 +12,7 @@
         android:id="@+id/relativeLayoutTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_alignParentTop="true">
 
         <TextView android:text="@string/grafico"
             android:layout_width="match_parent"
@@ -33,9 +32,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="false"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/relativeLayoutButtons"
-        android:layout_below="@+id/relativeLayoutTitulo">
+        android:layout_below="@+id/relativeLayoutTitulo"
+        android:layout_above="@+id/linearLayoutCronometro">
 
 
 
@@ -44,10 +42,39 @@
             android:layout_width="match_parent"
             android:layout_below="@string/grafico"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="1dp"
             custom:circleColor="#ff0099"
             custom:circleLabel="Hello"
-            custom:labelColor="#ffff66" />
+            custom:labelColor="#ffff66"
+            android:layout_centerInParent="true" />
+
+
+
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:onClick="btnPressed"
+            android:text="@string/btn_label"
+            android:layout_margin="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/linearLayoutCronometro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentStart="false"
+        android:orientation="vertical"
+        android:layout_above="@+id/linearLayoutConcluir">
+
 
         <TextView
             android:id="@+id/textTimer"
@@ -58,58 +85,68 @@
             android:layout_alignParentEnd="false"
             android:layout_alignParentStart="false"
             android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:autoText="false" />
-
-
-        <Button
-            android:layout_height="45dp"
-            android:layout_width="90dp"
-            android:onClick="btnPressed"
-            android:text="@string/btn_label"
-            android:layout_above="@+id/textTimer"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="10dp" />
-
-    </RelativeLayout>
-
-
-
-
-    <RelativeLayout
-        android:id="@+id/relativeLayoutButtons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="false"
-        android:layout_centerHorizontal="true">
+            android:autoText="false"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/btnStart"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp" />
 
 
         <Button
             android:id="@+id/btnStart"
-            android:layout_width="wrap_content"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="false"
-            android:layout_alignParentLeft="false"
             android:text="Start"
-            android:layout_alignParentEnd="false"
-            android:layout_alignParentStart="false"
-            android:layout_margin="10dp" />
+            android:layout_margin="1dp"
+            android:layout_gravity="center_horizontal" />
 
 
         <Button
-            android:id="@+id/btnPause"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnReset"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="Reset"
+            android:layout_margin="1dp"
+            android:layout_toRightOf="@+id/btnStart"
+            android:layout_gravity="center_horizontal" />
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/linearLayoutConcluir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="false"
+        android:orientation="vertical">
+
+
+
+        <Button
+            android:id="@+id/btnConcluir"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="false"
             android:layout_alignParentRight="false"
-            android:text="Pause"
+            android:text="Concluir"
             android:layout_alignParentStart="false"
             android:layout_alignParentEnd="false"
-            android:layout_margin="10dp"
-            android:layout_toRightOf="@+id/btnStart"
+            android:layout_marginBottom="2dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_gravity="center_horizontal"
             android:layout_centerInParent="true" />
+
 
 
     </RelativeLayout>

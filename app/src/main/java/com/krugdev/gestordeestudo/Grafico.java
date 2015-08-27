@@ -22,7 +22,7 @@ public class Grafico extends Activity {
 
     private TextView textTimer;
     private Button startButton;
-    private Button pauseButton;
+    private Button resetButton;
     private long startTime = 0L;
     private Handler myHandler = new Handler();
     long timeInMillies = 0L;
@@ -49,16 +49,31 @@ public class Grafico extends Activity {
         startButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                startTime = SystemClock.uptimeMillis();
-                myHandler.postDelayed(updateTimerMethod, 1000);
+
+                if(startButton.getText().toString().equals("Start"))
+                {
+                    startTime = SystemClock.uptimeMillis();
+                    myHandler.postDelayed(updateTimerMethod, 1000);
+                    startButton.setText("Pause");
+                }
+                else{
+                    timeSwap += timeInMillies;
+                    myHandler.removeCallbacks(updateTimerMethod);
+                    startButton.setText("Start");
+                }
+
+
+
+
             }
         });
 
-        pauseButton = (Button) findViewById(R.id.btnPause);
-        pauseButton.setOnClickListener(new View.OnClickListener() {
+        resetButton = (Button) findViewById(R.id.btnReset);
+        resetButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                timeSwap += timeInMillies;
                 myHandler.removeCallbacks(updateTimerMethod);
+                textTimer.setText("00:00:00");
+                startButton.setText("Start");
             }
         });
 

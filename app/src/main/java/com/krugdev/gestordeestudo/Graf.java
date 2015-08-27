@@ -68,29 +68,37 @@ public class Graf extends View {
 
         ArcPaint.setStyle(Style.STROKE);
         ArcPaint.setAntiAlias(true);
-        ArcPaint.setStrokeWidth(200);
+        int espessura = 200;
+        ArcPaint.setStrokeWidth(espessura);
 
-        int size = 0;
-        int padding = 0;
-        if(this.getMeasuredWidth()>this.getMeasuredHeight()) {
-            size = (int) Math.round(this.getMeasuredHeight() * 0.9);
-            padding = this.getMeasuredHeight() - size;
+
+        if(this.getMeasuredWidth()<this.getMeasuredHeight()) {
+            //int size = 0;
+            float anguloInicial = -90;
+            for (int i = 0; i < angulo.size(); i++) {
+                ArcPaint.setColor(cor.get(i));
+                canvas.drawArc(espessura/2, (this.getMeasuredHeight() - this.getMeasuredWidth()) / 2 + espessura/2, this.getMeasuredWidth()-espessura/2, this.getMeasuredWidth() + (this.getMeasuredHeight() - this.getMeasuredWidth()) / 2 - espessura/2, anguloInicial, angulo.get(i), false, ArcPaint);
+                anguloInicial = anguloInicial + angulo.get(i);
+            }
         }
         else {
-            size = (int) Math.round(this.getMeasuredWidth() * 0.9);
-            padding = this.getMeasuredWidth() - size;
+
+            float anguloInicial = -90;
+            for (int i = 0; i < angulo.size(); i++) {
+                ArcPaint.setColor(cor.get(i));
+                canvas.drawArc((this.getMeasuredWidth() - this.getMeasuredHeight()) / 2 + espessura/2 , espessura/2 , this.getMeasuredWidth()-(this.getMeasuredWidth() - this.getMeasuredHeight()) / 2 - espessura/2, this.getMeasuredHeight()-espessura/2, anguloInicial, angulo.get(i), false, ArcPaint);
+                anguloInicial = anguloInicial + angulo.get(i);
+            }
+
         }
 
-        float anguloInicial = -90;
 
-        for(int i=0 ; i < angulo.size()  ; i++){
-            ArcPaint.setColor(cor.get(i));
-            canvas.drawArc(padding, padding, size, size, anguloInicial, angulo.get(i), false, ArcPaint);
-            anguloInicial = anguloInicial + angulo.get(i);
-        }
 
 
     }
+
+
+
 
 
     public void set(ArrayList<Integer> c,ArrayList<Float> a){
