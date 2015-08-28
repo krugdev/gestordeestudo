@@ -35,12 +35,6 @@ public final class DatabaseContract {
         public static final String COLUMN_NAME_DURAÇÃO = "duração";
     }
 
-    
-
-
-
-
-
 
 
 }
