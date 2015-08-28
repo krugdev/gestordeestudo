@@ -72,6 +72,7 @@ public class Grafico extends Activity {
         resetButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 myHandler.removeCallbacks(updateTimerMethod);
+                timeSwap=0;
                 textTimer.setText("00:00:00");
                 startButton.setText("Start");
             }
