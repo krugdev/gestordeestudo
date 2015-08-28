@@ -6,10 +6,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 
 
-/**
- * Created by Krug on 28/08/2015.
- */
-public class DatabaseCreate extends SQLiteOpenHelper {
+
+public class Dados extends SQLiteOpenHelper {
 
     // If you change the database schema, you must increment the database version.
     public static final int DATABASE_VERSION = 1;
@@ -22,7 +20,7 @@ public class DatabaseCreate extends SQLiteOpenHelper {
     private static final String SQL_DELETE_REGISTROS = "DROP TABLE IF EXISTS REGISTROS;";
     private static final String SQL_DELETE_CICLO = "DROP TABLE IF EXISTS CICLO;";
 
-    public DatabaseCreate(Context context) {
+    public Dados(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
