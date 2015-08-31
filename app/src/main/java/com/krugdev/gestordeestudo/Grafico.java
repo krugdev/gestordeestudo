@@ -177,14 +177,16 @@ public class Grafico extends Activity {
         cor.clear();
         c.moveToFirst();
         for(int i=0;i<c.getCount();i++){
-        cor.add(c.getInt(c.getColumnIndex("COR")));
-        c.moveToNext();}
+            cor.add(c.getInt(c.getColumnIndex("COR")));
+            c.moveToNext();
+        }
 
         angulo.clear();
         c.moveToFirst();
         for(int i=0;i<c.getCount();i++){
             angulo.add((float)3.6*(float)c.getInt(c.getColumnIndex("TEMPO_TOTAL")));
-            c.moveToNext();}
+            c.moveToNext();
+        }
 
 
         /*angulo.clear();
