@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class Dados extends SQLiteOpenHelper {
 
-    // If you change the database schema, you must increment the database version.
+    // If you change the database schema, you must increment the database version
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "Dados.db";
     private static final String SQL_CREATE_TABLE_DISCIPLINAS = "CREATE TABLE DISCIPLINAS( _id INT PRIMARY KEY NOT NULL, DISCIPLINA TEXT NOT NULL, PESO REAL NOT NULL, COR CHAR(9) NOT NULL, TEMPO_TOTAL INT NOT NULL);";
