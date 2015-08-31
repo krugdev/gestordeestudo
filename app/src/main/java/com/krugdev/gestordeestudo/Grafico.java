@@ -113,7 +113,7 @@ public class Grafico extends Activity {
 
 
         //private SQLiteDatabase db;
-        Dados dados = new Dados(context);
+        Dados dados = new Dados(this);
         SQLiteDatabase db = dados.getWritableDatabase();
 
         // Create a new map of values, where column names are the keys
@@ -126,7 +126,7 @@ public class Grafico extends Activity {
         db.insert("DISCIPLINAS", null, values);
         values.clear();
 
-        values.put("_id", 2);
+        values.put("_id",2);
         values.put("DISCIPLINA", "Direito Constitucional");
         values.put("PESO",35);
         values.put("COR",Color.argb(255,0,255,0));
@@ -134,7 +134,7 @@ public class Grafico extends Activity {
         db.insert("DISCIPLINAS", null, values);
         values.clear();
 
-        values.put("_id", 3);
+        values.put("_id",3);
         values.put("DISCIPLINA", "Português");
         values.put("PESO",25);
         values.put("COR",Color.argb(255,0,0,255));
@@ -142,7 +142,7 @@ public class Grafico extends Activity {
         db.insert("DISCIPLINAS", null, values);
         values.clear();
 
-        values.put("_id", 4);
+        values.put("_id",4);
         values.put("DISCIPLINA", "Finanças");
         values.put("PESO",10);
         values.put("COR",Color.argb(255,255,255,0));
@@ -154,6 +154,7 @@ public class Grafico extends Activity {
         // Define a projection that specifies which columns from the database
         // you will actually use after this query.
         String[] colunas = {
+                "_id",
                 "DISCIPLINA",
                 "COR",
                 "TEMPO_TOTAL",
