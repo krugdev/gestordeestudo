@@ -115,6 +115,7 @@ public class Grafico extends Activity {
         //private SQLiteDatabase db;
         Dados dados = new Dados(this);
         SQLiteDatabase db = dados.getWritableDatabase();
+        db.delete("DISCIPLINAS",null,null);
 
         // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
