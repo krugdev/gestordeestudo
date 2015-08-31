@@ -1,6 +1,10 @@
 package com.krugdev.gestordeestudo;
 
 import android.app.Activity;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -28,6 +32,7 @@ public class Grafico extends Activity {
     long timeInMillies = 0L;
     long timeSwap = 0L;
     long finalTime = 0L;
+    private Context context = this.context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,7 +110,83 @@ public class Grafico extends Activity {
 
     public void btnPressed(View view) {
 
+
+
+        //private SQLiteDatabase db;
+        Dados dados = new Dados(context);
+        SQLiteDatabase db = dados.getWritableDatabase();
+
+        // Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put("_id",1);
+        values.put("DISCIPLINA","Direito Administrativo");
+        values.put("PESO",30);
+        values.put("COR",Color.argb(255,255,0,0));
+        values.put("TEMPO_TOTAL",30);
+        db.insert("DISCIPLINAS", null, values);
+        values.clear();
+
+        values.put("_id", 2);
+        values.put("DISCIPLINA", "Direito Constitucional");
+        values.put("PESO",35);
+        values.put("COR",Color.argb(255,0,255,0));
+        values.put("TEMPO_TOTAL",45);
+        db.insert("DISCIPLINAS", null, values);
+        values.clear();
+
+        values.put("_id", 3);
+        values.put("DISCIPLINA", "Português");
+        values.put("PESO",25);
+        values.put("COR",Color.argb(255,0,0,255));
+        values.put("TEMPO_TOTAL",25);
+        db.insert("DISCIPLINAS", null, values);
+        values.clear();
+
+        values.put("_id", 4);
+        values.put("DISCIPLINA", "Finanças");
+        values.put("PESO",10);
+        values.put("COR",Color.argb(255,255,255,0));
+        values.put("TEMPO_TOTAL",10);
+        db.insert("DISCIPLINAS", null, values);
+        values.clear();
+
+
+        // Define a projection that specifies which columns from the database
+        // you will actually use after this query.
+        String[] colunas = {
+                "DISCIPLINA",
+                "COR",
+                "TEMPO_TOTAL",
+        };
+
+        // How you want the results sorted in the resulting Cursor
+        String sortOrder = "_id ASC";
+
+        Cursor c = db.query(
+                "DISCIPLINAS",  // The table to query
+                colunas,                               // The columns to return
+                null,                                // The columns for the WHERE clause
+                null,                            // The values for the WHERE clause
+                null,                                     // don't group the rows
+                null,                                     // don't filter by row groups
+                sortOrder                                 // The sort order
+        );
+
+
+        cor.clear();
+        c.moveToFirst();
+        for(int i=0;i<c.getCount();i++){
+        cor.add(c.getInt(c.getColumnIndex("COR")));
+        c.moveToNext();}
+
         angulo.clear();
+        c.moveToFirst();
+        for(int i=0;i<c.getCount();i++){
+            angulo.add((float)3.6*(float)c.getInt(c.getColumnIndex("TEMPO_TOTAL")));
+            c.moveToNext();}
+
+
+        /*angulo.clear();
 
         angulo.add((float)10);
         angulo.add((float)25);
@@ -124,6 +205,7 @@ public class Grafico extends Activity {
         cor.add(Color.argb(255,0,255,255));
         cor.add(Color.argb(255,255,255,255));
         cor.add(Color.argb(255,0,0,255));
+        */
 
         Graf.set(cor, angulo);
 
