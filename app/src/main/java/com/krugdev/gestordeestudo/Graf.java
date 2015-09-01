@@ -70,6 +70,7 @@ public class Graf extends View {
         ArcPaint.setAntiAlias(true);
         int espessura = 200;
         ArcPaint.setStrokeWidth(espessura);
+        ArcPaint.getStrokeCap();
 
 
         if(this.getMeasuredWidth()<this.getMeasuredHeight()) {

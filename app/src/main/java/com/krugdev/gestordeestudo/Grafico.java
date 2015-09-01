@@ -131,7 +131,7 @@ public class Grafico extends Activity {
         values.put("DISCIPLINA", "Direito Constitucional");
         values.put("PESO",35);
         values.put("COR",Color.argb(255,0,255,0));
-        values.put("TEMPO_TOTAL",45);
+        values.put("TEMPO_TOTAL",35);
         db.insert("DISCIPLINAS", null, values);
         values.clear();
 
@@ -175,6 +175,7 @@ public class Grafico extends Activity {
         );
 
 
+
         cor.clear();
         c.moveToFirst();
         for(int i=0;i<c.getCount();i++){
@@ -185,7 +186,7 @@ public class Grafico extends Activity {
         angulo.clear();
         c.moveToFirst();
         for(int i=0;i<c.getCount();i++){
-            angulo.add((float)3.6*(float)c.getInt(c.getColumnIndex("TEMPO_TOTAL")));
+            angulo.add((float)3.6*c.getInt(c.getColumnIndex("TEMPO_TOTAL")));
             c.moveToNext();
         }
 
