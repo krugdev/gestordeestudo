@@ -3,4 +3,7 @@
     <string name="btn_label">Yeah!</string>
     <string name="grafico">Grafico</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_disciplinas">Disciplinas</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

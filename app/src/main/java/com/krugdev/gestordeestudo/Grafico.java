@@ -3,6 +3,7 @@ package com.krugdev.gestordeestudo;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -235,6 +236,12 @@ public class Grafico extends Activity {
         }
 
     };
+
+
+    public void abrirDisciplinas(View view) {
+        Intent intent = new Intent(this, Disciplinas.class);
+        startActivity(intent);
+    }
 
 
 }
