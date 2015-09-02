@@ -33,7 +33,7 @@ public class Grafico extends Activity {
     long timeInMillies = 0L;
     long timeSwap = 0L;
     long finalTime = 0L;
-    private Context context = this.context;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
