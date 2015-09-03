@@ -21,7 +21,8 @@ public class Disciplinas extends Activity {
 
     private Dados dados;
     private SQLiteDatabase db;
-    private SimpleCursorAdapter dataAdapter;
+    //private SimpleCursorAdapter dataAdapter;
+    private MyCursorAdapter CursorAdapter;
 
 
     @Override
@@ -59,7 +60,7 @@ public class Disciplinas extends Activity {
                 sortOrder                                 // The sort order
         );
 
-
+        /*
         // The desired columns to be bound
         String[] columns = new String[] {
                 "DISCIPLINA",
@@ -85,12 +86,16 @@ public class Disciplinas extends Activity {
                 to,
                 0);
 
+        */
+
+        MyCursorAdapter CursorAdapter = new MyCursorAdapter(this,cursor,0);
+
         ListView listView = (ListView) findViewById(R.id.listView1);
         // Assign adapter to ListView
-        listView.setAdapter(dataAdapter);
+        listView.setAdapter(CursorAdapter);
 
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> listView, View view,
                                     int position, long id) {
@@ -105,7 +110,7 @@ public class Disciplinas extends Activity {
 
             }
         });
-
+        */
 
 
     }

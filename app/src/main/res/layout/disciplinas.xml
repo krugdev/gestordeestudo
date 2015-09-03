@@ -51,15 +51,6 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/cor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView4"
-        android:layout_alignBottom="@+id/textView4"
-        android:text="TextView"
-        android:layout_toRightOf="@+id/textView4" />
-
-    <TextView
         android:id="@+id/peso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -84,6 +75,15 @@
         android:layout_alignParentRight="true"
         android:src="@android:drawable/ic_menu_edit"
         android:layout_margin="10dp" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/imageViewCor"
+        android:baselineAlignBottom="false"
+        android:layout_toRightOf="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignTop="@+id/textView4" />
 
 
 </RelativeLayout>
