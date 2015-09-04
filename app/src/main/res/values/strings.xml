@@ -6,4 +6,5 @@
     <string name="title_activity_disciplinas">Disciplinas</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_editar_disciplina">Editar Disciplina</string>
 </resources>

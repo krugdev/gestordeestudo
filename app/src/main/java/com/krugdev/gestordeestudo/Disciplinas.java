@@ -1,6 +1,7 @@
 package com.krugdev.gestordeestudo;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -139,4 +140,16 @@ public class Disciplinas extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
+    public void editarDisciplina(View view) {
+        Intent intent = new Intent(this, EditarDisciplina.class);
+        startActivity(intent);
+    }
+
+
+
+
+
 }
