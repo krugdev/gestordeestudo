@@ -75,8 +75,7 @@
         android:layout_alignParentRight="true"
         android:src="@android:drawable/ic_menu_edit"
         android:layout_margin="10dp"
-        android:background="#00ffffff"
-        android:onClick="editarDisciplina" />
+        android:background="#00ffffff" />
 
     <ImageView
         android:layout_width="20dp"

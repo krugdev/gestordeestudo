@@ -13,8 +13,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.FilterQueryProvider;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Disciplinas extends Activity {
@@ -94,25 +96,7 @@ public class Disciplinas extends Activity {
         ListView listView = (ListView) findViewById(R.id.listView1);
         // Assign adapter to ListView
         listView.setAdapter(CursorAdapter);
-
-
-        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> listView, View view,
-                                    int position, long id) {
-                // Get the cursor, positioned to the corresponding row in the result set
-                Cursor cursor = (Cursor) listView.getItemAtPosition(position);
-
-                // Get the state's capital from this row in the database.
-                String toast =
-                        cursor.getString(cursor.getColumnIndexOrThrow("DISCIPLINA"));
-                Toast.makeText(getApplicationContext(),
-                        toast, Toast.LENGTH_SHORT).show();
-
-            }
-        });
-        */
-
+        
 
     }
 
@@ -143,9 +127,25 @@ public class Disciplinas extends Activity {
 
 
 
-    public void editarDisciplina(View view) {
+    public void editarDisciplina() {
         Intent intent = new Intent(this, EditarDisciplina.class);
+
+        TextView disciplina = (TextView) findViewById(R.id.disciplina);
+        intent.putExtra("disciplina", disciplina.getText().toString());
+
+        TextView peso = (TextView) findViewById(R.id.peso);
+        intent.putExtra("peso", peso.getText().toString());
+
+        TextView tempoTotal = (TextView) findViewById(R.id.tempoTotal);
+        intent.putExtra("tempoTotal", tempoTotal.getText().toString());
+
+        ImageView cor = (ImageView) findViewById(R.id.imageViewCor);
+        intent.putExtra("cor", (int) cor.getSolidColor());
+
         startActivity(intent);
+
+
+
     }
 
 
