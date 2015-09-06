@@ -26,6 +26,7 @@ public class Disciplinas extends Activity {
     private SQLiteDatabase db;
     //private SimpleCursorAdapter dataAdapter;
     private MyCursorAdapter CursorAdapter;
+    private AdapterView.OnItemClickListener ItemClickListener;
 
 
     @Override
@@ -96,9 +97,23 @@ public class Disciplinas extends Activity {
         ListView listView = (ListView) findViewById(R.id.listView1);
         // Assign adapter to ListView
         listView.setAdapter(CursorAdapter);
-        
+
+
+        ItemClickListener = new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String item = ((TextView) view).getText().toString();
+
+                Toast.makeText(getBaseContext(), item, Toast.LENGTH_LONG).show();
+            }
+        };
+
+
+        listView.setOnItemClickListener(ItemClickListener);
 
     }
+
+
 
 
 
