@@ -99,17 +99,6 @@ public class Disciplinas extends Activity {
         listView.setAdapter(CursorAdapter);
 
 
-        ItemClickListener = new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String item = ((TextView) view).getText().toString();
-
-                Toast.makeText(getBaseContext(), item, Toast.LENGTH_LONG).show();
-            }
-        };
-
-
-        listView.setOnItemClickListener(ItemClickListener);
 
     }
 
@@ -142,7 +131,7 @@ public class Disciplinas extends Activity {
 
 
 
-    public void editarDisciplina() {
+    /*public void editarDisciplina() {
         Intent intent = new Intent(this, EditarDisciplina.class);
 
         TextView disciplina = (TextView) findViewById(R.id.disciplina);
@@ -161,7 +150,7 @@ public class Disciplinas extends Activity {
 
 
 
-    }
+    }*/
 
 
 

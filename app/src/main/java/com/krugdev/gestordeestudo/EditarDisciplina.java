@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class EditarDisciplina extends Activity {
 
@@ -19,8 +20,10 @@ public class EditarDisciplina extends Activity {
 
         Intent intent = getIntent();
 
-        EditText disciplina = (EditText) findViewById(R.id.editTextDisciplina);
-        disciplina.setText(intent.getStringExtra("disciplina"));
+        Toast.makeText(this,"YEAH "+intent.getIntExtra("posição",100), Toast.LENGTH_LONG).show();
+
+        /*EditText disciplina = (EditText) findViewById(R.id.editTextDisciplina);
+        disciplina.setText(intent.getStringExtra("posição"));
 
         EditText peso = (EditText) findViewById(R.id.editTextPeso);
         peso.setText(intent.getStringExtra("peso"));
@@ -29,7 +32,7 @@ public class EditarDisciplina extends Activity {
         tempoTotal.setText(intent.getStringExtra("peso"));
 
         ImageView cor = (ImageView) findViewById(R.id.imageViewCor);
-        cor.setBackgroundColor(intent.getIntExtra("cor", 0));
+        cor.setBackgroundColor(intent.getIntExtra("cor", 0));*/
     }
 
     @Override
