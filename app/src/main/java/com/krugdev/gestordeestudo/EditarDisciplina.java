@@ -98,7 +98,7 @@ public class EditarDisciplina extends Activity {
 
                 
 
-                startActivity(intent);
+                v.getContext().startActivity(intent);
 
             }
         });
