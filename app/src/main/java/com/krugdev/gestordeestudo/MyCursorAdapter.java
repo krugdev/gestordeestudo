@@ -47,7 +47,7 @@ public class MyCursorAdapter extends CursorAdapter {
         //textViewTitle.setText(title);
 
         ImageButton button = (ImageButton) view.findViewById(R.id.editButton);
-        button.setTag(cursor.getPosition());
+        button.setTag(cursor.getPosition()+1);
 
         button.setOnClickListener(new View.OnClickListener() {
 

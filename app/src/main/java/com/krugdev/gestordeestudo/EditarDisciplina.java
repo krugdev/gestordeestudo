@@ -2,15 +2,25 @@ package com.krugdev.gestordeestudo;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class EditarDisciplina extends Activity {
+
+    private Dados dados;
+    private SQLiteDatabase db;
+    //private MyCursorAdapter CursorAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,19 +30,83 @@ public class EditarDisciplina extends Activity {
 
         Intent intent = getIntent();
 
-        Toast.makeText(this,"YEAH "+intent.getIntExtra("posição",100), Toast.LENGTH_LONG).show();
+        dados = new Dados(this);
 
-        /*EditText disciplina = (EditText) findViewById(R.id.editTextDisciplina);
-        disciplina.setText(intent.getStringExtra("posição"));
+        db = dados.getWritableDatabase();
+
+        String[] colunas = {
+                "_id",
+                "DISCIPLINA",
+                "PESO",
+                "COR",
+                "TEMPO_TOTAL",
+        };
+
+        String[] where = {
+                "_id="+intent.getIntExtra("posição",100)
+        };
+
+        String sortOrder = "_id ASC";
+
+        Cursor cursor = db.rawQuery("SELECT * FROM DISCIPLINAS WHERE _id = "+intent.getIntExtra("posição",100),null,null);
+
+
+
+
+        /*Cursor cursor = db.query(
+                "DISCIPLINAS",  // The table to query
+                colunas,                               // The columns to return
+                null,                                // The columns for the WHERE clause
+                where,                            // The values for the WHERE clause
+                null,                                     // don't group the rows
+                null,                                     // don't filter by row groups
+                sortOrder                                 // The sort order
+        );*/
+
+        cursor.moveToFirst();
+
+        //Toast.makeText(this,"YEAH "+intent.getIntExtra("posição",100), Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"YEAH "+cursor.getString(cursor.getColumnIndex("DISCIPLINA")), Toast.LENGTH_LONG).show();
+
+        EditText disciplina = (EditText) findViewById(R.id.editTextDisciplina);
+        disciplina.setText(cursor.getString(cursor.getColumnIndex("DISCIPLINA")));
 
         EditText peso = (EditText) findViewById(R.id.editTextPeso);
-        peso.setText(intent.getStringExtra("peso"));
+        peso.setText(cursor.getString(cursor.getColumnIndex("PESO")));
 
         EditText tempoTotal = (EditText) findViewById(R.id.editTextTempoTotal);
-        tempoTotal.setText(intent.getStringExtra("peso"));
+        tempoTotal.setText(cursor.getString(cursor.getColumnIndex("TEMPO_TOTAL")));
 
         ImageView cor = (ImageView) findViewById(R.id.imageViewCor);
-        cor.setBackgroundColor(intent.getIntExtra("cor", 0));*/
+        cor.setBackgroundColor(cursor.getInt(cursor.getColumnIndex("COR")));
+
+
+
+
+
+
+        ImageButton button = (ImageButton) findViewById(R.id.editButton);
+
+
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+
+                Intent intent = new Intent(v.getContext(), Disciplinas.class);
+
+                
+
+                startActivity(intent);
+
+            }
+        });
+
+
+
+
+
     }
 
     @Override
@@ -55,5 +129,10 @@ public class EditarDisciplina extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void salvar(){
+
+
     }
 }
