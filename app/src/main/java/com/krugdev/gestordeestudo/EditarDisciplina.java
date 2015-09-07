@@ -19,6 +19,7 @@ public class EditarDisciplina extends Activity {
 
     private Dados dados;
     private SQLiteDatabase db;
+    private EditText disciplina;
     //private MyCursorAdapter CursorAdapter;
 
 
@@ -80,12 +81,8 @@ public class EditarDisciplina extends Activity {
         ImageView cor = (ImageView) findViewById(R.id.imageViewCor);
         cor.setBackgroundColor(cursor.getInt(cursor.getColumnIndex("COR")));
 
-
-
-
-
-
         ImageButton button = (ImageButton) findViewById(R.id.editButton);
+        button.setTag(intent.getIntExtra("posição",100));
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -95,9 +92,11 @@ public class EditarDisciplina extends Activity {
 
 
                 Intent intent = new Intent(v.getContext(), Disciplinas.class);
-
-                
-
+                EditText disciplina = (EditText) findViewById(R.id.editTextDisciplina);
+                EditText peso = (EditText) findViewById(R.id.editTextPeso);
+                EditText tempoTotal = (EditText) findViewById(R.id.editTextTempoTotal);
+                ImageView cor = (ImageView) findViewById(R.id.imageViewCor);
+                db.rawQuery("UPDATE DISCIPLINAS SET DISCIPLINA = '" + disciplina.getText().toString() + "' , PESO = " + peso.getText().toString() + " , TEMPO_TOTAL = " + tempoTotal.getText().toString() + " , COR = "+ cor.getSolidColor() + " WHERE _id = " +v.getTag(),null,null);
                 v.getContext().startActivity(intent);
 
             }
