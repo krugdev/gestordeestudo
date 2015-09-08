@@ -19,7 +19,7 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Disciplinas extends Activity {
+public class EditarCiclo extends Activity {
 
 
     private Dados dados;

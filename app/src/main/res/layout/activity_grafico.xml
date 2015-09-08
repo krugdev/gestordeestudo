@@ -49,19 +49,6 @@
             android:layout_centerInParent="true" />
 
 
-
-
-        <Button
-            android:layout_height="wrap_content"
-            android:layout_width="100dp"
-            android:onClick="btnPressed"
-            android:text="@string/btn_label"
-            android:layout_margin="1dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/button"
-            android:layout_alignParentLeft="true" />
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -82,8 +69,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="false"
+        android:layout_alignParentRight="false"
         android:layout_alignParentBottom="false"
         android:layout_alignParentStart="false"
+        android:layout_alignParentLeft="false"
         android:orientation="vertical"
         android:layout_above="@+id/linearLayoutConcluir">
 
@@ -96,6 +85,8 @@
             android:text="00:00:00"
             android:layout_alignParentEnd="false"
             android:layout_alignParentStart="false"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentLeft="false"
             android:layout_centerHorizontal="true"
             android:autoText="false"
             android:layout_gravity="center_horizontal"
@@ -139,6 +130,8 @@
         android:layout_alignParentEnd="false"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentLeft="false"
         android:orientation="vertical">
 
 
@@ -151,6 +144,7 @@
             android:layout_alignParentRight="false"
             android:text="Concluir"
             android:layout_alignParentStart="false"
+            android:layout_alignParentLeft="false"
             android:layout_alignParentEnd="false"
             android:layout_marginBottom="2dp"
             android:layout_marginRight="1dp"

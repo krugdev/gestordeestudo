@@ -12,9 +12,10 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:id="@+id/DisciplinaLayout"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:layout_margin="5dp">
 
         <TextView
             android:id="@+id/textView1"
@@ -36,8 +37,9 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/PesoLayout">
+        android:layout_height="wrap_content"
+        android:id="@+id/PesoLayout"
+        android:layout_margin="5dp">
 
         <TextView
             android:id="@+id/textView2"
@@ -61,8 +63,9 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/TempoLayout">
+        android:layout_height="wrap_content"
+        android:id="@+id/TempoLayout"
+        android:layout_margin="5dp">
 
         <TextView
             android:id="@+id/textView3"
@@ -86,8 +89,9 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/CorLayout">
+        android:layout_height="40dp"
+        android:id="@+id/CorLayout"
+        android:layout_margin="5dp">
 
         <TextView
             android:id="@+id/textView4"
@@ -115,7 +119,7 @@
         android:id="@+id/editButton"
         android:src="@android:drawable/ic_menu_save"
         android:background="#00ffffff"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         android:layout_gravity="center" />
 
 

@@ -8,11 +8,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class EditarDisciplina extends Activity {
@@ -90,7 +88,7 @@ public class EditarDisciplina extends Activity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(v.getContext(), Disciplinas.class);
+                Intent intent = new Intent(v.getContext(), EditarCiclo.class);
                 EditText disciplina = (EditText) findViewById(R.id.editTextDisciplina);
                 EditText peso = (EditText) findViewById(R.id.editTextPeso);
                 EditText tempoTotal = (EditText) findViewById(R.id.editTextTempoTotal);

@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Disciplinas"
+            android:name=".EditarCiclo"
             android:label="@string/title_activity_disciplinas"
             android:parentActivityName=".Grafico" >
             <meta-data
@@ -28,10 +28,10 @@
         <activity
             android:name=".EditarDisciplina"
             android:label="@string/title_activity_editar_disciplina"
-            android:parentActivityName=".Disciplinas" >
+            android:parentActivityName=".EditarCiclo" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.krugdev.gestordeestudo.Disciplinas" />
+                android:value=".EditarCiclo" />
         </activity>
     </application>
 
