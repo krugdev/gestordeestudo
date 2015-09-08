@@ -1,6 +1,8 @@
 package com.krugdev.gestordeestudo;
 
 import android.app.Activity;
+import android.app.DialogFragment;
+import android.app.Fragment;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -18,6 +20,7 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.app.DialogFragment;
 
 public class EditarCiclo extends Activity {
 
@@ -80,7 +83,7 @@ public class EditarCiclo extends Activity {
 
 
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_disciplinas, menu);
@@ -100,7 +103,8 @@ public class EditarCiclo extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
+
 
 
 }
