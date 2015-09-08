@@ -90,13 +90,12 @@ public class EditarDisciplina extends Activity {
             @Override
             public void onClick(View v) {
 
-
                 Intent intent = new Intent(v.getContext(), Disciplinas.class);
                 EditText disciplina = (EditText) findViewById(R.id.editTextDisciplina);
                 EditText peso = (EditText) findViewById(R.id.editTextPeso);
                 EditText tempoTotal = (EditText) findViewById(R.id.editTextTempoTotal);
                 ImageView cor = (ImageView) findViewById(R.id.imageViewCor);
-                db.rawQuery("UPDATE DISCIPLINAS SET DISCIPLINA = '" + disciplina.getText().toString() + "' , PESO = " + peso.getText().toString() + " , TEMPO_TOTAL = " + tempoTotal.getText().toString() + " , COR = "+ cor.getSolidColor() + " WHERE _id = " +v.getTag(),null,null);
+                db.execSQL("UPDATE DISCIPLINAS SET DISCIPLINA = '" + disciplina.getText().toString() + "' , PESO = " + peso.getText().toString() + " , TEMPO_TOTAL = " + tempoTotal.getText().toString() + " , COR = "+ cor.getSolidColor() + " WHERE _id = " +v.getTag());
                 v.getContext().startActivity(intent);
 
             }

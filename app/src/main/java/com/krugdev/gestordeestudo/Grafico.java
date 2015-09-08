@@ -69,8 +69,6 @@ public class Grafico extends Activity {
                 }
 
 
-
-
             }
         });
 
@@ -110,8 +108,6 @@ public class Grafico extends Activity {
     }
 
     public void btnPressed(View view) {
-
-
 
         //private SQLiteDatabase db;
         Dados dados = new Dados(this);
@@ -192,28 +188,7 @@ public class Grafico extends Activity {
         }
 
 
-        /*angulo.clear();
-
-        angulo.add((float)10);
-        angulo.add((float)25);
-        angulo.add((float)40);
-        angulo.add((float)35);
-        angulo.add((float)12);
-        angulo.add((float)45);
-        angulo.add((float)25);
-
-        cor.clear();
-
-        cor.add(Color.argb(255,255,0,0));
-        cor.add(Color.argb(255,255,255,0));
-        cor.add(Color.argb(255,255,0,255));
-        cor.add(Color.argb(255,0,255,0));
-        cor.add(Color.argb(255,0,255,255));
-        cor.add(Color.argb(255,255,255,255));
-        cor.add(Color.argb(255,0,0,255));
-        */
-
-        Graf.set(cor, angulo);
+       Graf.set(cor, angulo);
 
     }
 

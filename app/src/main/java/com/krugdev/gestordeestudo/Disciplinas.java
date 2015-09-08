@@ -64,33 +64,6 @@ public class Disciplinas extends Activity {
                 sortOrder                                 // The sort order
         );
 
-        /*
-        // The desired columns to be bound
-        String[] columns = new String[] {
-                "DISCIPLINA",
-                "PESO",
-                "TEMPO_TOTAL",
-                "COR"
-        };
-
-        // the XML defined views which the data will be bound to
-        int[] to = new int[] {
-                R.id.disciplina,
-                R.id.peso,
-                R.id.tempoTotal,
-                R.id.cor,
-        };
-
-        // create the adapter using the cursor pointing to the desired data
-        //as well as the layout information
-        dataAdapter = new SimpleCursorAdapter(
-                this, R.layout.disciplinas,
-                cursor,
-                columns,
-                to,
-                0);
-
-        */
 
         MyCursorAdapter CursorAdapter = new MyCursorAdapter(this,cursor,0);
 
@@ -128,32 +101,6 @@ public class Disciplinas extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
-
-    /*public void editarDisciplina() {
-        Intent intent = new Intent(this, EditarDisciplina.class);
-
-        TextView disciplina = (TextView) findViewById(R.id.disciplina);
-        intent.putExtra("disciplina", disciplina.getText().toString());
-
-        TextView peso = (TextView) findViewById(R.id.peso);
-        intent.putExtra("peso", peso.getText().toString());
-
-        TextView tempoTotal = (TextView) findViewById(R.id.tempoTotal);
-        intent.putExtra("tempoTotal", tempoTotal.getText().toString());
-
-        ImageView cor = (ImageView) findViewById(R.id.imageViewCor);
-        intent.putExtra("cor", (int) cor.getSolidColor());
-
-        startActivity(intent);
-
-
-
-    }*/
-
-
-
 
 
 }
