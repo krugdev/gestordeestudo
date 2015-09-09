@@ -1,24 +1,31 @@
 package com.krugdev.gestordeestudo;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class EditarDisciplina extends Activity {
 
     private Dados dados;
     private SQLiteDatabase db;
     private EditText disciplina;
-    //private MyCursorAdapter CursorAdapter;
 
 
     @Override
@@ -49,19 +56,6 @@ public class EditarDisciplina extends Activity {
 
         Cursor cursor = db.rawQuery("SELECT * FROM DISCIPLINAS WHERE _id = "+intent.getIntExtra("posição",100),null,null);
 
-
-
-
-        /*Cursor cursor = db.query(
-                "DISCIPLINAS",  // The table to query
-                colunas,                               // The columns to return
-                null,                                // The columns for the WHERE clause
-                where,                            // The values for the WHERE clause
-                null,                                     // don't group the rows
-                null,                                     // don't filter by row groups
-                sortOrder                                 // The sort order
-        );*/
-
         cursor.moveToFirst();
 
         //Toast.makeText(this,"YEAH "+intent.getIntExtra("posição",100), Toast.LENGTH_LONG).show();
@@ -80,7 +74,7 @@ public class EditarDisciplina extends Activity {
         cor.setBackgroundColor(cursor.getInt(cursor.getColumnIndex("COR")));
 
         ImageButton button = (ImageButton) findViewById(R.id.editButton);
-        button.setTag(intent.getIntExtra("posição",100));
+        button.setTag(intent.getIntExtra("posição", 100));
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -100,10 +94,8 @@ public class EditarDisciplina extends Activity {
         });
 
 
-
-
-
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -127,8 +119,11 @@ public class EditarDisciplina extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void salvar(){
 
 
-    }
+
+
 }
+
+
+

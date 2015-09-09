@@ -84,7 +84,7 @@
         android:baselineAlignBottom="false"
         android:layout_toRightOf="@+id/textView4"
         android:layout_alignBottom="@+id/textView4"
-        android:layout_alignTop="@+id/textView4" />
+        android:layout_marginBottom="3dp" />
 
 
 </RelativeLayout>

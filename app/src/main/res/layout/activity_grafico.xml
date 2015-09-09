@@ -5,14 +5,18 @@
     android:layout_height="match_parent"
     android:paddingLeft="5dp"
     android:paddingRight="5dp"
-    tools:context=".Grafico">
+    tools:context=".Grafico"
+    android:orientation="vertical">
 
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/relativeLayoutTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true">
 
         <TextView android:text="@string/grafico"
             android:layout_width="match_parent"
@@ -24,16 +28,20 @@
             android:layout_margin="10dp"
             android:layout_centerInParent="true" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/relativeLayoutGrafico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="false"
         android:layout_below="@+id/relativeLayoutTitulo"
-        android:layout_above="@+id/linearLayoutCronometro">
+        android:layout_margin="10dp"
+        android:layout_above="@+id/LinearLayoutTimer"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_centerHorizontal="true">
 
 
 
@@ -49,33 +57,18 @@
             android:layout_centerInParent="true" />
 
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Disciplinas"
-            android:id="@+id/disciplinas"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:onClick="abrirDisciplinas" />
-
-    </RelativeLayout>
+    </LinearLayout>
 
 
-
-
-    <RelativeLayout
-        android:id="@+id/linearLayoutCronometro"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentBottom="false"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentLeft="false"
-        android:orientation="vertical"
-        android:layout_above="@+id/linearLayoutConcluir">
-
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:id="@+id/LinearLayoutTimer"
+        android:layout_above="@+id/LinearLayoutStartReset"
+        android:layout_marginBottom="10dp">
 
         <TextView
             android:id="@+id/textTimer"
@@ -90,49 +83,50 @@
             android:layout_centerHorizontal="true"
             android:autoText="false"
             android:layout_gravity="center_horizontal"
-            android:layout_below="@+id/btnStart"
             android:layout_marginLeft="1dp"
             android:layout_marginRight="1dp"
             android:layout_marginTop="1dp" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/LinearLayoutStartReset"
+        android:layout_above="@+id/linearLayoutConcluir"
+        android:gravity="center">
 
         <Button
             android:id="@+id/btnStart"
-            android:layout_width="180dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Start"
             android:layout_margin="1dp"
-            android:layout_gravity="center_horizontal" />
-
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/btnReset"
-            android:layout_width="180dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Reset"
             android:layout_margin="1dp"
             android:layout_toRightOf="@+id/btnStart"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:layout_weight="1" />
+
+    </LinearLayout>
 
 
-
-
-
-
-
-    </RelativeLayout>
-
-
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/linearLayoutConcluir"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="false"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentLeft="false"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true">
 
 
 
@@ -146,16 +140,13 @@
             android:layout_alignParentStart="false"
             android:layout_alignParentLeft="false"
             android:layout_alignParentEnd="false"
-            android:layout_marginBottom="2dp"
-            android:layout_marginRight="1dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginLeft="1dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_centerInParent="true" />
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:gravity="center" />
 
 
 
-    </RelativeLayout>
+    </LinearLayout>
 
 
 </RelativeLayout>
