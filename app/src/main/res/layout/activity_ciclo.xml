@@ -37,23 +37,23 @@
             android:layout_weight="1"
             android:gravity="center" />
 
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="300"
-            android:id="@+id/textView6"
+            android:id="@+id/editTextTamanho"
             android:textSize="20sp"
-            android:textIsSelectable="false"
             android:layout_weight="0"
-            android:autoText="false"
-            android:editable="false"
-            android:enabled="true"
             android:gravity="left"
-            android:inputType="number"
             android:maxLength="3"
             android:textStyle="bold"
             android:singleLine="true"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:enabled="true"
+            android:clickable="true"
+            android:editable="true"
+            android:inputType="number"
+            android:layout_marginLeft="5dp" />
 
     </LinearLayout>
 
@@ -75,23 +75,23 @@
             android:layout_weight="1"
             android:gravity="center" />
 
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="300"
-            android:id="@+id/editText"
+            android:id="@+id/editTextBloco"
             android:textSize="20sp"
-            android:textIsSelectable="false"
             android:layout_weight="0"
             android:autoText="false"
-            android:editable="false"
-            android:enabled="true"
             android:gravity="left"
-            android:inputType="number"
             android:maxLength="3"
             android:textStyle="bold"
             android:singleLine="true"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:inputType="number"
+            android:editable="true"
+            android:enabled="true"
+            android:layout_marginLeft="5dp" />
     </LinearLayout>
 
     <RelativeLayout
@@ -103,12 +103,17 @@
 
         <ListView android:id="@+id/listView1" android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
             android:layout_centerHorizontal="true"
             android:clickable="false" />
 
     </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+    </LinearLayout>
 
 </LinearLayout>

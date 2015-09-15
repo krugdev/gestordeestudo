@@ -7,19 +7,22 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.CursorAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class EditarCiclo extends Activity {
 
+public class Ciclo extends Activity {
 
     private Dados dados;
     private SQLiteDatabase db;
-    //private SimpleCursorAdapter dataAdapter;
     private MyCursorAdapter CursorAdapter;
     private AdapterView.OnItemClickListener ItemClickListener;
 
@@ -27,7 +30,7 @@ public class EditarCiclo extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editar_ciclo);
+        setContentView(R.layout.activity_ciclo);
 
         dados = new Dados(this);
         db = dados.getWritableDatabase();
@@ -37,6 +40,28 @@ public class EditarCiclo extends Activity {
 
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_ciclo, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.editar_ciclo:
+                Intent intent = new Intent(this, EditarCiclo.class);
+                startActivity(intent);
+                return true;
+
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 
     private void displayListView() {
 
@@ -67,43 +92,7 @@ public class EditarCiclo extends Activity {
         // Assign adapter to ListView
         listView.setAdapter(CursorAdapter);
 
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-   /* @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_disciplinas, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }*/
-
-
 
 
     private class MyCursorAdapter extends android.widget.CursorAdapter {
@@ -135,13 +124,12 @@ public class EditarCiclo extends Activity {
 
         public View newView(Context context, Cursor cursor, ViewGroup parent) {
             // R.layout.list_row is your xml layout for each row
-            return cursorInflater.inflate(R.layout.editar_disciplinas_lista, parent, false);
+            return cursorInflater.inflate(R.layout.disciplinas_lista, parent, false);
 
         }
 
 
     }
-
 
 
 

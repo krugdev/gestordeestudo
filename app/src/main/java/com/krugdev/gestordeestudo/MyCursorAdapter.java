@@ -9,14 +9,12 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * Created by Krug on 03/09/2015.
  */
-public class MyCursorAdapter extends CursorAdapter {
+/*public class MyCursorAdapter extends CursorAdapter {
 
     private LayoutInflater cursorInflater;
     final private Context context = this.context;
@@ -71,9 +69,9 @@ public class MyCursorAdapter extends CursorAdapter {
 
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
         // R.layout.list_row is your xml layout for each row
-        return cursorInflater.inflate(R.layout.disciplinas, parent, false);
+        return cursorInflater.inflate(R.layout.editar_disciplinas_lista, parent, false);
 
     }
 
 
-}
+}*/

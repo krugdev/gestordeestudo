@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".Grafico">
-    <item android:id="@+id/configurações" android:title="@string/action_settings"
+    <item android:id="@+id/detalhes_ciclo" android:title="@string/detalhes_ciclo"
         android:orderInCategory="100" android:showAsAction="never" />
     <item android:id="@+id/yeah" android:title="@string/yeah"
         android:orderInCategory="100" android:showAsAction="never" />

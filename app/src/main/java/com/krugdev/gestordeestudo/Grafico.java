@@ -98,8 +98,8 @@ public class Grafico extends Activity {
         int id = item.getItemId();
 
         switch (item.getItemId()) {
-            case R.id.configurações:
-                Intent intent = new Intent(this, EditarCiclo.class);
+            case R.id.detalhes_ciclo:
+                Intent intent = new Intent(this, Ciclo.class);
                 startActivity(intent);
                 return true;
             case R.id.yeah:

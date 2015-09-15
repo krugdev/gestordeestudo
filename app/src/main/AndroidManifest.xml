@@ -20,7 +20,8 @@
         <activity
             android:name=".EditarCiclo"
             android:label="@string/title_activity_disciplinas"
-            android:parentActivityName=".Grafico" >
+            android:parentActivityName=".Ciclo"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.krugdev.gestordeestudo.Grafico" />
@@ -32,6 +33,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".EditarCiclo" />
+        </activity>
+        <activity
+            android:name=".Ciclo"
+            android:label="@string/title_activity_ciclo"
+            android:parentActivityName=".Grafico" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.krugdev.gestordeestudo.Grafico" />
         </activity>
     </application>
 

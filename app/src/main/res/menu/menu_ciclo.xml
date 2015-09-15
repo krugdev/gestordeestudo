@@ -1,0 +1,6 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" tools:context="com.krugdev.gestordeestudo.Ciclo">
+    <item android:id="@+id/editar_ciclo" android:title="Editar Ciclo"
+        android:orderInCategory="100" android:showAsAction="never" />
+
+</menu>
