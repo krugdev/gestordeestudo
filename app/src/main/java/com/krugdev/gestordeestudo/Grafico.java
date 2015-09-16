@@ -99,7 +99,7 @@ public class Grafico extends Activity {
 
         switch (item.getItemId()) {
             case R.id.detalhes_ciclo:
-                Intent intent = new Intent(this, Ciclo.class);
+                Intent intent = new Intent(this, DetalhesCiclo.class);
                 startActivity(intent);
                 return true;
             case R.id.yeah:
@@ -134,7 +134,7 @@ public class Grafico extends Activity {
         values.put("_id",1);
         values.put("DISCIPLINA","Direito Administrativo");
         values.put("PESO",30);
-        values.put("COR",Color.argb(255,255,0,0));
+        values.put("COR",0);
         values.put("TEMPO_TOTAL",30);
         db.insert("DISCIPLINAS", null, values);
         values.clear();
@@ -142,7 +142,7 @@ public class Grafico extends Activity {
         values.put("_id",2);
         values.put("DISCIPLINA", "Direito Constitucional");
         values.put("PESO",35);
-        values.put("COR",Color.argb(255,0,255,0));
+        values.put("COR",1);
         values.put("TEMPO_TOTAL",35);
         db.insert("DISCIPLINAS", null, values);
         values.clear();
@@ -150,7 +150,7 @@ public class Grafico extends Activity {
         values.put("_id",3);
         values.put("DISCIPLINA", "Português");
         values.put("PESO",25);
-        values.put("COR",Color.argb(255,0,0,255));
+        values.put("COR",2);
         values.put("TEMPO_TOTAL",25);
         db.insert("DISCIPLINAS", null, values);
         values.clear();
@@ -158,7 +158,7 @@ public class Grafico extends Activity {
         values.put("_id",4);
         values.put("DISCIPLINA", "Finanças");
         values.put("PESO",10);
-        values.put("COR",Color.argb(255,255,255,0));
+        values.put("COR",3);
         values.put("TEMPO_TOTAL",10);
         db.insert("DISCIPLINAS", null, values);
         values.clear();
@@ -229,7 +229,7 @@ public class Grafico extends Activity {
 
 
     public void abrirDisciplinas(View view) {
-        Intent intent = new Intent(this, EditarCiclo.class);
+        Intent intent = new Intent(this, DetalhesCiclo.class);
         startActivity(intent);
     }
 

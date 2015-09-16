@@ -8,4 +8,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_editar_disciplina">Editar Disciplina</string>
     <string name="title_activity_ciclo">Ciclo</string>
+    <string name="title_activity_selecionar_cor">selecionarCor</string>
+    <string name="action_settings">Settings</string>
 </resources>

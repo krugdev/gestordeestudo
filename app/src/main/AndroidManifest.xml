@@ -18,8 +18,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EditarCiclo"
-            android:label="@string/title_activity_disciplinas"
+            android:name=".DetalhesCiclo"
+            android:label="Detalhes do Ciclo"
             android:parentActivityName=".Ciclo"
             android:windowSoftInputMode="stateHidden|adjustResize" >
             <meta-data
@@ -27,20 +27,36 @@
                 android:value="com.krugdev.gestordeestudo.Grafico" />
         </activity>
         <activity
-            android:name=".EditarDisciplina"
-            android:label="@string/title_activity_editar_disciplina"
+            android:name=".EditarCiclo"
+            android:label="Editar Ciclo"
+            android:parentActivityName=".DetalhesCiclo" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DetalhesCiclo" />
+        </activity>
+        <activity
+            android:name=".Ciclo"
+            android:label="Gestor de Estudo"
+            android:parentActivityName=".Grafico" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.krugdev.gestordeestudo.Grafico" />
+        </activity>
+        <activity
+            android:name=".selecionarCor"
+            android:label="Selecionar Cor"
             android:parentActivityName=".EditarCiclo" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".EditarCiclo" />
         </activity>
         <activity
-            android:name=".Ciclo"
-            android:label="@string/title_activity_ciclo"
-            android:parentActivityName=".Grafico" >
+            android:name=".EditarDisciplina"
+            android:label="Editar Disciplina"
+            android:parentActivityName=".EditarCiclo" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.krugdev.gestordeestudo.Grafico" />
+                android:value="com.krugdev.gestordeestudo.EditarCiclo" />
         </activity>
     </application>
 

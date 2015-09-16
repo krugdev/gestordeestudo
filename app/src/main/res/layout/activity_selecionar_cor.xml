@@ -13,7 +13,10 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:id="@+id/linha1">
+        android:id="@+id/linha1"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -60,7 +63,9 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:id="@+id/linha2">
+        android:id="@+id/linha2"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -107,12 +112,14 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:id="@+id/linha3">
+        android:id="@+id/linha3"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="90dp"
-            android:id="@+id/imageView"
+            android:id="@+id/cor11"
             android:layout_weight="1"
             android:layout_margin="5dp"
             android:background="#ffffd1f8" />
@@ -120,7 +127,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="90dp"
-            android:id="@+id/imageView"
+            android:id="@+id/cor12"
             android:layout_weight="1"
             android:layout_margin="5dp"
             android:background="#ff8cffa2" />
@@ -128,7 +135,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="90dp"
-            android:id="@+id/imageView"
+            android:id="@+id/cor13"
             android:layout_weight="1"
             android:layout_margin="5dp"
             android:background="#ffffa984" />
@@ -136,7 +143,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="90dp"
-            android:id="@+id/imageView2"
+            android:id="@+id/cor14"
             android:layout_weight="1"
             android:layout_margin="5dp"
             android:background="#ff8cffa2" />
@@ -144,7 +151,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="90dp"
-            android:id="@+id/imageView2"
+            android:id="@+id/cor15"
             android:layout_weight="1"
             android:layout_margin="5dp"
             android:background="#ffffa984" />
@@ -154,12 +161,14 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:id="@+id/linha4">
+        android:id="@+id/linha4"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="90dp"
-            android:id="@+id/imageView6"
+            android:id="@+id/cor16"
             android:layout_weight="1"
             android:layout_margin="5dp"
             android:background="#ff47b7ff" />
@@ -167,7 +176,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="90dp"
-            android:id="@+id/imageView6"
+            android:id="@+id/cor17"
             android:layout_weight="1"
             android:layout_margin="5dp"
             android:background="#ffd0ffa9" />
@@ -175,7 +184,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="90dp"
-            android:id="@+id/imageView3"
+            android:id="@+id/cor18"
             android:layout_weight="1"
             android:layout_margin="5dp"
             android:background="#ffffa984" />
@@ -183,7 +192,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="90dp"
-            android:id="@+id/imageView3"
+            android:id="@+id/cor19"
             android:layout_weight="1"
             android:layout_margin="5dp"
             android:background="#ff8cffa2" />
@@ -191,7 +200,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="90dp"
-            android:id="@+id/imageView3"
+            android:id="@+id/cor20"
             android:layout_weight="1"
             android:layout_margin="5dp"
             android:background="#ffffa984" />
@@ -201,12 +210,15 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:id="@+id/linha5">
+        android:id="@+id/linha5"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="5dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="90dp"
-            android:id="@+id/imageView7"
+            android:id="@+id/cor21"
             android:layout_weight="1"
             android:layout_margin="5dp"
             android:background="#ffa772ff" />
@@ -214,7 +226,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="90dp"
-            android:id="@+id/imageView7"
+            android:id="@+id/cor22"
             android:layout_weight="1"
             android:layout_margin="5dp"
             android:background="#ffff4f70" />
@@ -222,7 +234,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="90dp"
-            android:id="@+id/imageView7"
+            android:id="@+id/cor23"
             android:layout_weight="1"
             android:layout_margin="5dp"
             android:background="#fffff492" />
@@ -230,7 +242,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="90dp"
-            android:id="@+id/imageView4"
+            android:id="@+id/cor24"
             android:layout_weight="1"
             android:layout_margin="5dp"
             android:background="#ff8cffa2" />
@@ -238,7 +250,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="90dp"
-            android:id="@+id/imageView4"
+            android:id="@+id/cor25"
             android:layout_weight="1"
             android:layout_margin="5dp"
             android:background="#ffffa984" />

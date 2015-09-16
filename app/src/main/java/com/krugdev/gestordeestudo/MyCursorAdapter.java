@@ -53,7 +53,7 @@ import android.widget.TextView;
             public void onClick(View v) {
 
 
-                Intent intent = new Intent(v.getContext(), EditarDisciplina.class);
+                Intent intent = new Intent(v.getContext(), EditarCiclo.class);
 
                 int posição = (int) v.getTag();
 

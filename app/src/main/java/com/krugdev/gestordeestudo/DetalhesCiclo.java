@@ -16,8 +16,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+public class DetalhesCiclo extends Activity {
 
-public class Ciclo extends Activity {
 
     private Dados dados;
     private SQLiteDatabase db;
@@ -38,28 +38,6 @@ public class Ciclo extends Activity {
 
 
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_detalhes_ciclo, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.editar_ciclo:
-                Intent intent = new Intent(this, DetalhesCiclo.class);
-                startActivity(intent);
-                return true;
-
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
 
     private void displayListView() {
 
@@ -90,7 +68,42 @@ public class Ciclo extends Activity {
         // Assign adapter to ListView
         listView.setAdapter(CursorAdapter);
 
+
+
     }
+
+
+
+
+
+
+
+
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_detalhes_ciclo, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.editar_ciclo:
+                Intent intent = new Intent(this, EditarCiclo.class);
+                startActivity(intent);
+                return true;
+
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
 
 
     private class MyCursorAdapter extends android.widget.CursorAdapter {
@@ -128,6 +141,7 @@ public class Ciclo extends Activity {
 
 
     }
+
 
 
 

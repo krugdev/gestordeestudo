@@ -7,34 +7,37 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
-import android.widget.CursorAdapter;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
 
 public class EditarDisciplina extends Activity {
 
     private Dados dados;
     private SQLiteDatabase db;
     private EditText disciplina;
+    private int posição;
+
+
+    private static final Integer[] cores = {Color.argb(255,255,0,0), Color.argb(255,0,255,0), Color.argb(255,0,0,255)};
+
+    /*private static final Integer[] emoticons = {R.drawable.cool, R.drawable.amazed, R.drawable.angelic,
+            R.drawable.crying, R.drawable.devil, R.drawable.hand,
+            R.drawable.laughing, R.drawable.loving, R.drawable.question, R.drawable.sad,
+            R.drawable.silence, R.drawable.simple, R.drawable.sleeping, R.drawable.smiling,
+            R.drawable.worried};*/
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_editar_disciplina);
 
         Intent intent = getIntent();
@@ -55,14 +58,13 @@ public class EditarDisciplina extends Activity {
                 "_id="+intent.getIntExtra("posição",100)
         };
 
+        posição=intent.getIntExtra("posição",100);
+
         String sortOrder = "_id ASC";
 
         Cursor cursor = db.rawQuery("SELECT * FROM DISCIPLINAS WHERE _id = "+intent.getIntExtra("posição",100),null,null);
 
         cursor.moveToFirst();
-
-        //Toast.makeText(this,"YEAH "+intent.getIntExtra("posição",100), Toast.LENGTH_LONG).show();
-        Toast.makeText(this,"YEAH "+cursor.getString(cursor.getColumnIndex("DISCIPLINA")), Toast.LENGTH_LONG).show();
 
         EditText disciplina = (EditText) findViewById(R.id.editTextDisciplina);
         disciplina.setText(cursor.getString(cursor.getColumnIndex("DISCIPLINA")));
@@ -76,29 +78,34 @@ public class EditarDisciplina extends Activity {
         ImageView cor = (ImageView) findViewById(R.id.imageViewCor);
         cor.setBackgroundColor(cursor.getInt(cursor.getColumnIndex("COR")));
 
-        ImageButton button = (ImageButton) findViewById(R.id.editButton);
-        button.setTag(intent.getIntExtra("posição", 100));
+        Spinner corSpinner = (Spinner) findViewById(R.id.corSpinner);
+
+        corSpinner.setAdapter(new MySpinnerAdapter());
+        //corSpinner.setOnItemSelectedListener(this);
 
 
-        button.setOnClickListener(new View.OnClickListener() {
+
+
+        cor.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(v.getContext(), EditarCiclo.class);
-                EditText disciplina = (EditText) findViewById(R.id.editTextDisciplina);
-                EditText peso = (EditText) findViewById(R.id.editTextPeso);
-                EditText tempoTotal = (EditText) findViewById(R.id.editTextTempoTotal);
-                ImageView cor = (ImageView) findViewById(R.id.imageViewCor);
-                db.execSQL("UPDATE DISCIPLINAS SET DISCIPLINA = '" + disciplina.getText().toString() + "' , PESO = " + peso.getText().toString() + " , TEMPO_TOTAL = " + tempoTotal.getText().toString() + " , COR = "+ cor.getSolidColor() + " WHERE _id = " +v.getTag());
+                Intent intent = new Intent(v.getContext(), selecionarCor.class);
+
+                intent.putExtra("posição", posição);
+
                 v.getContext().startActivity(intent);
 
             }
         });
 
 
-    }
 
+
+
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -115,83 +122,75 @@ public class EditarDisciplina extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-
+        if (id == R.id.action_settings) {
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
 
+    private static class ViewHolder {
 
-    private class MyCursorAdapter extends CursorAdapter {
+        ImageView imageViewCor;
 
-        private LayoutInflater cursorInflater;
-        final private Context context = this.context;
+    }
 
-        // Default constructor
-        public MyCursorAdapter(Context context, Cursor cursor, int flags) {
-            super(context, cursor, flags);
-            cursorInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    private class MySpinnerAdapter extends BaseAdapter {
+
+
+
+        public int getCount() {
+            return cores.length;
         }
 
-        public void bindView(View view, Context context, Cursor cursor) {
-            TextView disciplina = (TextView) view.findViewById(R.id.disciplina);
-            disciplina.setText(cursor.getString(cursor.getColumnIndex("DISCIPLINA")));
+        @Override
+        public Integer getItem(int position) {
 
-            TextView peso = (TextView) view.findViewById(R.id.peso);
-            peso.setText(cursor.getString(cursor.getColumnIndex("PESO")));
-
-            TextView tempoTotal = (TextView) view.findViewById(R.id.tempoTotal);
-            tempoTotal.setText(cursor.getString(cursor.getColumnIndex("TEMPO_TOTAL")));
-
-            //TextView cor = (TextView) view.findViewById(R.id.cor);
-            //cor.setText(cursor.getString(cursor.getColumnIndex("COR")));
-
-            ImageView ImageViewCor = (ImageView) view.findViewById(R.id.imageViewCor);
-            ImageViewCor.setBackgroundColor(cursor.getInt(cursor.getColumnIndex("COR")));
-
-            //String title = cursor.getString( cursor.getColumnIndex( MyTable.COLUMN_TITLE ) );
-            //textViewTitle.setText(title);
-
-            ImageButton button = (ImageButton) view.findViewById(R.id.editButton);
-            button.setTag(cursor.getPosition()+1);
-
-            button.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-
-
-                    Intent intent = new Intent(v.getContext(), EditarDisciplina.class);
-
-                    int posição = (int) v.getTag();
-
-                    intent.putExtra("posição", posição);
-
-                    v.getContext().startActivity(intent);
-
-                }
-            });
-
-
+            return cores[position];
         }
 
-        public View newView(Context context, Cursor cursor, ViewGroup parent) {
-            // R.layout.list_row is your xml layout for each row
-            return cursorInflater.inflate(R.layout.editar_disciplinas_lista, parent, false);
-
+        @Override
+        public long getItemId(int position) {
+            return position;
         }
 
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            View itemView = convertView;
+            ViewHolder corViewHolder;
+
+            if (convertView == null) {
+//
+                itemView = getLayoutInflater()
+                        .inflate(R.layout.spinner_row, parent, false);
+
+
+                corViewHolder = new ViewHolder();
+                corViewHolder.imageViewCor
+                        = (ImageView) itemView.findViewById(R.id.spinnerImage);
+
+                corViewHolder.imageViewCor.setBackgroundColor(cores[position]);
+                itemView.setTag(corViewHolder);
+
+
+            } else {
+
+                corViewHolder = (ViewHolder) itemView.getTag();
+
+            }
+
+
+           /* corViewHolder.imageViewCor
+                    .setImageDrawable(getResources()
+                            .getDrawable(cores[position]));*/
+
+            return itemView;
+
+        }
 
     }
 
 
 
-
-
-
-
-
-
 }
-
-
-

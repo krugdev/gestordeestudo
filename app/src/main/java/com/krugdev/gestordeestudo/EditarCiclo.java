@@ -5,21 +5,30 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.CursorAdapter;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class EditarCiclo extends Activity {
 
-
     private Dados dados;
     private SQLiteDatabase db;
-    //private SimpleCursorAdapter dataAdapter;
     private MyCursorAdapter CursorAdapter;
     private AdapterView.OnItemClickListener ItemClickListener;
 
@@ -27,6 +36,7 @@ public class EditarCiclo extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_editar_ciclo);
 
         dados = new Dados(this);
@@ -35,8 +45,8 @@ public class EditarCiclo extends Activity {
         //Generate ListView from SQLite Database
         displayListView();
 
-
     }
+
 
     private void displayListView() {
 
@@ -68,23 +78,15 @@ public class EditarCiclo extends Activity {
         listView.setAdapter(CursorAdapter);
 
 
-
     }
 
 
 
 
-
-
-
-
-
-
-
-   /* @Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_disciplinas, menu);
+        getMenuInflater().inflate(R.menu.menu_editar_disciplina, menu);
         return true;
     }
 
@@ -96,17 +98,13 @@ public class EditarCiclo extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
-    }*/
+    }
 
 
-
-
-    private class MyCursorAdapter extends android.widget.CursorAdapter {
+    private class MyCursorAdapter extends CursorAdapter {
 
         private LayoutInflater cursorInflater;
         final private Context context = this.context;
@@ -127,8 +125,34 @@ public class EditarCiclo extends Activity {
             TextView tempoTotal = (TextView) view.findViewById(R.id.tempoTotal);
             tempoTotal.setText(cursor.getString(cursor.getColumnIndex("TEMPO_TOTAL")));
 
+            //TextView cor = (TextView) view.findViewById(R.id.cor);
+            //cor.setText(cursor.getString(cursor.getColumnIndex("COR")));
+
             ImageView ImageViewCor = (ImageView) view.findViewById(R.id.imageViewCor);
             ImageViewCor.setBackgroundColor(cursor.getInt(cursor.getColumnIndex("COR")));
+
+            //String title = cursor.getString( cursor.getColumnIndex( MyTable.COLUMN_TITLE ) );
+            //textViewTitle.setText(title);
+
+            ImageButton button = (ImageButton) view.findViewById(R.id.editButton);
+            button.setTag(cursor.getPosition()+1);
+
+            button.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+
+
+                    Intent intent = new Intent(v.getContext(), EditarDisciplina.class);
+
+                    int posição = (int) v.getTag();
+
+                    intent.putExtra("posição", posição);
+
+                    v.getContext().startActivity(intent);
+
+                }
+            });
 
 
         }
@@ -142,9 +166,23 @@ public class EditarCiclo extends Activity {
 
     }
 
+    /*private void selecionarCor(View v){
+
+
+        Intent intent = new Intent(v.getContext(), selecionarCor.class);
+
+        intent.putExtra("posição", posição);
+
+        v.getContext().startActivity(intent);
+
+
+    }*/
 
 
 
 
 
 }
+
+
+
