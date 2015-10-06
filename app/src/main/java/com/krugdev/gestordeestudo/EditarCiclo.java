@@ -129,7 +129,7 @@ public class EditarCiclo extends Activity {
             //cor.setText(cursor.getString(cursor.getColumnIndex("COR")));
 
             ImageView ImageViewCor = (ImageView) view.findViewById(R.id.imageViewCor);
-            ImageViewCor.setBackgroundColor(cursor.getInt(cursor.getColumnIndex("COR")));
+            ImageViewCor.setBackgroundColor(Cor.getCor(cursor.getInt(cursor.getColumnIndex("COR"))));
 
             //String title = cursor.getString( cursor.getColumnIndex( MyTable.COLUMN_TITLE ) );
             //textViewTitle.setText(title);

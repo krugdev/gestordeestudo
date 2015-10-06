@@ -191,7 +191,7 @@ public class Grafico extends Activity {
         cor.clear();
         c.moveToFirst();
         for(int i=0;i<c.getCount();i++){
-            cor.add(c.getInt(c.getColumnIndex("COR")));
+            cor.add(Cor.getCor(c.getInt(c.getColumnIndex("COR"))));
             c.moveToNext();
         }
 

@@ -128,7 +128,7 @@ public class DetalhesCiclo extends Activity {
             tempoTotal.setText(cursor.getString(cursor.getColumnIndex("TEMPO_TOTAL")));
 
             ImageView ImageViewCor = (ImageView) view.findViewById(R.id.imageViewCor);
-            ImageViewCor.setBackgroundColor(cursor.getInt(cursor.getColumnIndex("COR")));
+            ImageViewCor.setBackgroundColor(Cor.getCor(cursor.getInt(cursor.getColumnIndex("COR"))));
 
 
         }
