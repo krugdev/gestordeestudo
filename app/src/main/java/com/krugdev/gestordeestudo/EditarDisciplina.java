@@ -11,14 +11,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 
-public class EditarDisciplina extends Activity {
+public class EditarDisciplina extends Activity implements AdapterView.OnItemSelectedListener {
 
     private Dados dados;
     private SQLiteDatabase db;
@@ -26,7 +29,7 @@ public class EditarDisciplina extends Activity {
     private int posição;
 
 
-    private static final Integer[] cores = {Color.argb(255,255,0,0), Color.argb(255,0,255,0), Color.argb(255,0,0,255)};
+   // private static final Integer[] cores = {Color.argb(255,255,0,0), Color.argb(255,0,255,0), Color.argb(255,0,0,255)};
 
     /*private static final Integer[] emoticons = {R.drawable.cool, R.drawable.amazed, R.drawable.angelic,
             R.drawable.crying, R.drawable.devil, R.drawable.hand,
@@ -37,7 +40,9 @@ public class EditarDisciplina extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_editar_disciplina);
 
         Intent intent = getIntent();
@@ -75,38 +80,87 @@ public class EditarDisciplina extends Activity {
         EditText tempoTotal = (EditText) findViewById(R.id.editTextTempoTotal);
         tempoTotal.setText(cursor.getString(cursor.getColumnIndex("TEMPO_TOTAL")));
 
-        ImageView cor = (ImageView) findViewById(R.id.imageViewCor);
-        cor.setBackgroundColor(cursor.getInt(cursor.getColumnIndex("COR")));
+        ImageButton salvar = (ImageButton) findViewById(R.id.salvar);
 
-        Spinner corSpinner = (Spinner) findViewById(R.id.corSpinner);
+        //ImageView cor = (ImageView) findViewById(R.id.imageViewCor);
+        //cor.setBackgroundColor(Cor.getCor(cursor.getInt(cursor.getColumnIndex("COR"))));
 
+        final Spinner corSpinner = (Spinner) findViewById(R.id.corSpinner);
         corSpinner.setAdapter(new MySpinnerAdapter());
-        //corSpinner.setOnItemSelectedListener(this);
+        corSpinner.setOnItemSelectedListener(this);
+        corSpinner.setSelection(cursor.getInt(cursor.getColumnIndex("COR")));
 
-
-
-
-        cor.setOnClickListener(new View.OnClickListener() {
+        /*salvar.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(v.getContext(), selecionarCor.class);
+                Intent intent = new Intent(v.getContext(), EditarDisciplina.class);
+
+                int posição = (int) v.getTag();
 
                 intent.putExtra("posição", posição);
 
                 v.getContext().startActivity(intent);
 
+                db.execSQL("UPDATE DISCIPLINAS SET DISCIPLINA='"+disciplina.toString()+"',PESO='"+peso.toString()+"',TEMPO_TOTAL="+tempoTotal.toString()+"',COR="+corSpinner.getSelectedItemPosition()+"'WHERE _id='"+intent.getIntExtra("posição",100));
+               // UPDATE COMPANY SET ADDRESS = 'Texas' ,  WHERE ID = 6
+               // intent.putExtra("posição", corSpinner.getSelectedItemPosition());
+
+
             }
-        });
+        });*/
 
 
-
-
+        //corSpinner.getSelectedItemPosition();
 
 
     }
 
+    public void salvar(View v){
+
+        EditText disciplina = (EditText) findViewById(R.id.editTextDisciplina);
+
+        EditText peso = (EditText) findViewById(R.id.editTextPeso);
+
+        EditText tempoTotal = (EditText) findViewById(R.id.editTextTempoTotal);
+
+        Spinner corSpinner = (Spinner) findViewById(R.id.corSpinner);
+
+        //Intent intent = new Intent(v.getContext(), EditarDisciplina.class);
+
+        //int posição = (int) v.getTag();
+
+        //intent.putExtra("posição", posição);
+
+        //v.getContext().startActivity(intent);
+
+        db.execSQL("UPDATE DISCIPLINAS SET DISCIPLINA='"+disciplina.getText().toString()+"',PESO="+peso.getText().toString()+",TEMPO_TOTAL="+tempoTotal.getText().toString()+",COR="+corSpinner.getSelectedItemPosition()+" WHERE _id="+posição+";");
+
+        // UPDATE COMPANY SET ADDRESS = 'Texas' ,  WHERE ID = 6
+        // intent.putExtra("posição", corSpinner.getSelectedItemPosition());
+
+        Intent intent = new Intent(this, EditarCiclo.class);
+        startActivity(intent);
+
+
+    }
+
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent,
+                               View view, int position, long id) {
+        Toast.makeText(this, "Selected: "
+                + position, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+//        nothing selected
+    }
+
+
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -127,7 +181,7 @@ public class EditarDisciplina extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     private static class ViewHolder {
 
@@ -140,13 +194,13 @@ public class EditarDisciplina extends Activity {
 
 
         public int getCount() {
-            return cores.length;
+            return Cor.qtd();
         }
 
         @Override
         public Integer getItem(int position) {
 
-            return cores[position];
+            return Cor.getCor(position);
         }
 
         @Override
@@ -170,7 +224,7 @@ public class EditarDisciplina extends Activity {
                 corViewHolder.imageViewCor
                         = (ImageView) itemView.findViewById(R.id.spinnerImage);
 
-                corViewHolder.imageViewCor.setBackgroundColor(cores[position]);
+                corViewHolder.imageViewCor.setBackgroundColor(Cor.getCor(position));
                 itemView.setTag(corViewHolder);
 
 
