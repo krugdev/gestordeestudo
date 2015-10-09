@@ -226,7 +226,7 @@ public class EditarDisciplina extends Activity implements AdapterView.OnItemSele
                 corViewHolder = (ViewHolder) itemView.getTag();
 
             }
-            
+
 
             corViewHolder.imageViewCor.setBackgroundColor(Cor.getCor(position));
 
