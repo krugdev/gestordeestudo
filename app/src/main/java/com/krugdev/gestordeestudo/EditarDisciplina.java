@@ -82,10 +82,7 @@ public class EditarDisciplina extends Activity implements AdapterView.OnItemSele
 
         ImageButton salvar = (ImageButton) findViewById(R.id.salvar);
 
-        //ImageView cor = (ImageView) findViewById(R.id.imageViewCor);
-        //cor.setBackgroundColor(Cor.getCor(cursor.getInt(cursor.getColumnIndex("COR"))));
-
-        final Spinner corSpinner = (Spinner) findViewById(R.id.corSpinner);
+        Spinner corSpinner = (Spinner) findViewById(R.id.corSpinner);
         corSpinner.setAdapter(new MySpinnerAdapter());
         corSpinner.setOnItemSelectedListener(this);
         corSpinner.setSelection(cursor.getInt(cursor.getColumnIndex("COR")));
@@ -192,21 +189,21 @@ public class EditarDisciplina extends Activity implements AdapterView.OnItemSele
     private class MySpinnerAdapter extends BaseAdapter {
 
 
-
         public int getCount() {
             return Cor.qtd();
         }
 
         @Override
         public Integer getItem(int position) {
-
             return Cor.getCor(position);
         }
+
 
         @Override
         public long getItemId(int position) {
             return position;
         }
+
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
@@ -216,15 +213,11 @@ public class EditarDisciplina extends Activity implements AdapterView.OnItemSele
 
             if (convertView == null) {
 //
-                itemView = getLayoutInflater()
-                        .inflate(R.layout.spinner_row, parent, false);
+                itemView = getLayoutInflater().inflate(R.layout.spinner_row, parent, false);
 
 
                 corViewHolder = new ViewHolder();
-                corViewHolder.imageViewCor
-                        = (ImageView) itemView.findViewById(R.id.spinnerImage);
-
-                corViewHolder.imageViewCor.setBackgroundColor(Cor.getCor(position));
+                corViewHolder.imageViewCor = (ImageView) itemView.findViewById(R.id.spinnerImage);
                 itemView.setTag(corViewHolder);
 
 
@@ -233,11 +226,9 @@ public class EditarDisciplina extends Activity implements AdapterView.OnItemSele
                 corViewHolder = (ViewHolder) itemView.getTag();
 
             }
+            
 
-
-           /* corViewHolder.imageViewCor
-                    .setImageDrawable(getResources()
-                            .getDrawable(cores[position]));*/
+            corViewHolder.imageViewCor.setBackgroundColor(Cor.getCor(position));
 
             return itemView;
 
