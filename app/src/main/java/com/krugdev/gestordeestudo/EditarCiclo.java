@@ -3,6 +3,7 @@ package com.krugdev.gestordeestudo;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -42,8 +43,42 @@ public class EditarCiclo extends Activity {
         dados = new Dados(this);
         db = dados.getWritableDatabase();
 
+        EditText tamanhoCiclo = (EditText) findViewById(R.id.editTextTamanho);
+
+        EditText tamanhoBloco = (EditText) findViewById(R.id.editTextBloco);
+
+        SharedPreferences settings = getSharedPreferences("settings",0);
+
+        tamanhoCiclo.setText(Integer.toString(settings.getInt("tamanhoCiclo", 300)));
+
+        tamanhoBloco.setText(Integer.toString(settings.getInt("tamanhoBloco", 300)));
+
         //Generate ListView from SQLite Database
         displayListView();
+
+    }
+
+    public void salvar(View v){
+
+        Intent intent = new Intent(this, DetalhesCiclo.class);
+
+        EditText tamanhoCiclo = (EditText) findViewById(R.id.editTextTamanho);
+
+        EditText tamanhoBloco = (EditText) findViewById(R.id.editTextBloco);
+
+        SharedPreferences settings = getSharedPreferences("settings",0);
+
+        SharedPreferences.Editor editor = settings.edit();
+
+        editor.putInt("tamanhoCiclo", Integer.parseInt(tamanhoCiclo.getText().toString()));
+
+        editor.putInt("tamanhoBloco", Integer.parseInt(tamanhoBloco.getText().toString()));
+
+        // Commit the edits!
+        editor.commit();
+
+        startActivity(intent);
+
 
     }
 

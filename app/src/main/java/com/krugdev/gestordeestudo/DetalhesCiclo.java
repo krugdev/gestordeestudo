@@ -3,6 +3,7 @@ package com.krugdev.gestordeestudo;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -28,13 +30,42 @@ public class DetalhesCiclo extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_ciclo);
 
         dados = new Dados(this);
+
         db = dados.getWritableDatabase();
 
         //Generate ListView from SQLite Database
         displayListView();
+
+        TextView tamanhoCiclo = (TextView) findViewById(R.id.editTextTamanho);
+
+        TextView tamanhoBloco = (TextView) findViewById(R.id.editTextBloco);
+
+        SharedPreferences settings = getSharedPreferences("settings",0);
+
+        SharedPreferences.Editor editor = settings.edit();
+
+        if(settings.contains("tamanhoCiclo")) {
+            tamanhoCiclo.setText(Integer.toString(settings.getInt("tamanhoCiclo", 300)));
+        }
+        else{
+            editor.putInt("tamanhoCiclo", 300);
+            editor.commit();
+            tamanhoCiclo.setText("300");
+        }
+
+        if(settings.contains("tamanhoBloco")) {
+            tamanhoBloco.setText(Integer.toString(settings.getInt("tamanhoBloco", 300)));
+        }
+        else{
+            editor.putInt("tamanhoBiclo", 300);
+            editor.commit();
+            tamanhoBloco.setText("300");
+
+        }
 
 
     }
