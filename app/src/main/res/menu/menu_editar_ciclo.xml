@@ -1,0 +1,5 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" tools:context="com.krugdev.gestordeestudo.EditarCiclo">
+    <item android:id="@+id/adicionar_disciplina" android:title="Adicionar Disciplina"
+        android:orderInCategory="100" android:showAsAction="never" />
+</menu>

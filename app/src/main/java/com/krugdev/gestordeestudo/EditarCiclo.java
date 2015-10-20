@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -14,17 +13,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.CursorAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
 
 public class EditarCiclo extends Activity {
 
@@ -121,21 +115,22 @@ public class EditarCiclo extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_editar_disciplina, menu);
+        getMenuInflater().inflate(R.menu.menu_editar_ciclo, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (item.getItemId()) {
+            case R.id.adicionar_disciplina:
+                Intent intent = new Intent(this, AdicionarDisciplina.class);
+                startActivity(intent);
+                return true;
 
-        //noinspection SimplifiableIfStatement
 
-
-        return super.onOptionsItemSelected(item);
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 

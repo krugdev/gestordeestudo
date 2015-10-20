@@ -58,6 +58,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.krugdev.gestordeestudo.EditarCiclo" />
         </activity>
+        <activity
+            android:name=".AdicionarDisciplina"
+            android:label="@string/title_activity_adicionar_disciplina"
+            android:parentActivityName=".EditarCiclo" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.krugdev.gestordeestudo.EditarCiclo" />
+        </activity>
     </application>
 
 </manifest>

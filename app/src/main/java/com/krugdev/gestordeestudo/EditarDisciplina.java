@@ -161,7 +161,7 @@ public class EditarDisciplina extends Activity implements AdapterView.OnItemSele
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_editar_disciplina, menu);
+        getMenuInflater().inflate(R.menu.menu_editar_ciclo, menu);
         return true;
     }
 

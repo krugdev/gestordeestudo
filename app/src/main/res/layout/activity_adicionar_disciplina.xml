@@ -1,0 +1,125 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.krugdev.gestordeestudo.AdicionarDisciplina"
+    android:orientation="vertical"
+    android:id="@+id/AdicionarDisciplinaLayout">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DisciplinaLayout"
+        android:layout_gravity="center"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disciplina: "
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_gravity="center" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextDisciplina"
+            android:layout_gravity="center"
+            android:layout_weight="2" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/PesoLayout"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Peso: "
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_gravity="center" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextPeso"
+            android:layout_gravity="center"
+            android:layout_weight="2" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TempoLayout"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tempo Total: "
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_gravity="center" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextTempoTotal"
+            android:layout_gravity="center"
+            android:layout_weight="2" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/CorLayout"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cor: "
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_gravity="center" />
+
+        <Spinner
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/corSpinner" />
+
+
+    </LinearLayout>
+
+
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/salvar"
+        android:src="@android:drawable/ic_menu_save"
+        android:background="#00ffffff"
+        android:layout_margin="20dp"
+        android:layout_gravity="center"
+        android:onClick="salvar" />
+
+
+</LinearLayout>

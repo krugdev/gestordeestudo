@@ -77,6 +77,18 @@
         android:layout_margin="10dp"
         android:background="#00ffffff" />
 
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton"
+        android:background="#00ffffff"
+        android:src="@android:drawable/ic_menu_delete"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignBottom="@+id/editButton"
+        android:layout_toStartOf="@+id/editButton"
+        android:layout_centerVertical="true" />
+
     <ImageView
         android:layout_width="20dp"
         android:layout_height="20dp"
