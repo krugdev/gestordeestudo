@@ -164,10 +164,13 @@ public class EditarCiclo extends Activity {
             //String title = cursor.getString( cursor.getColumnIndex( MyTable.COLUMN_TITLE ) );
             //textViewTitle.setText(title);
 
-            ImageButton button = (ImageButton) view.findViewById(R.id.editButton);
-            button.setTag(cursor.getPosition()+1);
+            ImageButton editButton = (ImageButton) view.findViewById(R.id.editButton);
+            editButton.setTag(cursor.getPosition()+1);
 
-            button.setOnClickListener(new View.OnClickListener() {
+            ImageButton deleteButton = (ImageButton) view.findViewById(R.id.deleteButton);
+            deleteButton.setTag(cursor.getPosition()+1);
+
+            editButton.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
@@ -180,6 +183,19 @@ public class EditarCiclo extends Activity {
                     intent.putExtra("posição", posição);
 
                     v.getContext().startActivity(intent);
+
+                }
+            });
+
+
+            deleteButton.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+
+                    int posição = (int) v.getTag();
+
+                    
 
                 }
             });
