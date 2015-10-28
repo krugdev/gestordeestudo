@@ -194,8 +194,10 @@ public class EditarCiclo extends Activity {
                 public void onClick(View v) {
 
                     int posição = (int) v.getTag();
+                    //db = dados.getWritableDatabase();
+                   // db.delete("DISCIPLINAS","_id="+Integer.toString(posição),null);
+                    displayListView();
 
-                    
 
                 }
             });

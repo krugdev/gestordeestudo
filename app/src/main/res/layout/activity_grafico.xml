@@ -45,8 +45,8 @@
 
 
 
-        <com.krugdev.gestordeestudo.Graf
-            android:id="@+id/Graf"
+        <com.krugdev.gestordeestudo.GrafView
+            android:id="@+id/GrafView"
             android:layout_width="match_parent"
             android:layout_below="@string/grafico"
             android:layout_height="wrap_content"

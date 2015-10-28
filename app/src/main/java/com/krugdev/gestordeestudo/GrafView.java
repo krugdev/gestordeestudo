@@ -13,7 +13,7 @@ import java.lang.Math;
 
 
 
-public class Graf extends View {
+public class GrafView extends View {
 
     private Paint ArcPaint;
 
@@ -21,7 +21,7 @@ public class Graf extends View {
 
     private ArrayList<Integer> cor;
 
-    public Graf(Context context, AttributeSet attrs){
+    public GrafView(Context context, AttributeSet attrs){
         super(context);
 
         ArcPaint = new Paint();

@@ -2,6 +2,7 @@ package com.krugdev.gestordeestudo;
 
 import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -19,9 +20,10 @@ import java.util.ArrayList;
 
 public class Grafico extends Activity {
 
-    private Graf Graf;
+    private GrafView Graf;
     private ArrayList<Float> angulo;
     private ArrayList<Integer> cor;
+    private Context mContext;
 
     private TextView textTimer;
     private Button startButton;
@@ -39,7 +41,7 @@ public class Grafico extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grafico);
 
-        Graf = (Graf)findViewById(R.id.Graf);
+        Graf = (GrafView)findViewById(R.id.GrafView);
 
         angulo = new ArrayList<Float>();
         angulo.clear();
@@ -103,7 +105,7 @@ public class Grafico extends Activity {
                 startActivity(intent);
                 return true;
             case R.id.yeah:
-                yeah();
+                yeah(Graf);
                 return true;
 
             default:
@@ -122,16 +124,16 @@ public class Grafico extends Activity {
        // return super.onOptionsItemSelected(item);
     }
 
-    public void yeah() {
+    public void yeah(GrafView Graf) {
 
-        //private SQLiteDatabase db;
-        Dados dados = new Dados(this);
+        mContext = getApplicationContext();
+        Dados dados = new Dados(mContext);
         SQLiteDatabase db = dados.getWritableDatabase();
         db.delete("DISCIPLINAS",null,null);
 
         // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
-        values.put("_id",1);
+        //values.put("_id",1);
         values.put("DISCIPLINA","Direito Administrativo");
         values.put("PESO",30);
         values.put("COR",0);
@@ -139,7 +141,7 @@ public class Grafico extends Activity {
         db.insert("DISCIPLINAS", null, values);
         values.clear();
 
-        values.put("_id",2);
+        //values.put("_id",2);
         values.put("DISCIPLINA", "Direito Constitucional");
         values.put("PESO",35);
         values.put("COR",1);
@@ -147,7 +149,7 @@ public class Grafico extends Activity {
         db.insert("DISCIPLINAS", null, values);
         values.clear();
 
-        values.put("_id",3);
+        //values.put("_id",3);
         values.put("DISCIPLINA", "Português");
         values.put("PESO",25);
         values.put("COR",2);
@@ -155,7 +157,7 @@ public class Grafico extends Activity {
         db.insert("DISCIPLINAS", null, values);
         values.clear();
 
-        values.put("_id",4);
+        //values.put("_id",4);
         values.put("DISCIPLINA", "Finanças");
         values.put("PESO",10);
         values.put("COR",3);
@@ -167,7 +169,6 @@ public class Grafico extends Activity {
         // Define a projection that specifies which columns from the database
         // you will actually use after this query.
         String[] colunas = {
-                "_id",
                 "DISCIPLINA",
                 "COR",
                 "TEMPO_TOTAL",
